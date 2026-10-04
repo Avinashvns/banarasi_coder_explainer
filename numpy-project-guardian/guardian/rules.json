@@ -1,0 +1,42 @@
+{
+  "guardian": "NumPy Project Guardian",
+  "version": "1.0.0",
+
+  "rules": {
+    "lockedFeatureRemoval": {
+      "enabled": true,
+      "severity": "BLOCKED"
+    },
+
+    "lockedFeatureModification": {
+      "enabled": true,
+      "severity": "WARNING"
+    },
+
+    "newFeatureRemoval": {
+      "enabled": true,
+      "severity": "WARNING"
+    },
+
+    "gitDiffRequired": {
+      "enabled": true,
+      "severity": "BLOCKED"
+    },
+
+    "testsRequired": {
+      "enabled": true,
+      "severity": "BLOCKED"
+    },
+
+    "uiTestsRequired": {
+      "enabled": true,
+      "severity": "WARNING"
+    }
+  },
+
+  "status": {
+    "safe": "SAFE",
+    "warning": "WARNING",
+    "blocked": "BLOCKED"
+  }
+}

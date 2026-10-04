@@ -1,0 +1,92 @@
+{
+  "project": "NumPy Visual Explainer",
+  "guardian": "NumPy Project Guardian",
+  "version": "1.0.0",
+
+  "features": [
+    {
+      "id": "array-input",
+      "name": "Array Input",
+      "category": "core",
+      "status": "locked",
+      "mustPreserve": true
+    },
+    {
+      "id": "array-validation",
+      "name": "Array Validation",
+      "category": "core",
+      "status": "locked",
+      "mustPreserve": true
+    },
+    {
+      "id": "array-rendering",
+      "name": "2D Array Rendering",
+      "category": "visualization",
+      "status": "locked",
+      "mustPreserve": true
+    },
+    {
+      "id": "shape",
+      "name": "Shape",
+      "category": "array-properties",
+      "status": "locked",
+      "mustPreserve": true
+    },
+    {
+      "id": "ndim",
+      "name": "ndim",
+      "category": "array-properties",
+      "status": "locked",
+      "mustPreserve": true
+    },
+    {
+      "id": "size",
+      "name": "size",
+      "category": "array-properties",
+      "status": "locked",
+      "mustPreserve": true
+    },
+    {
+      "id": "dtype",
+      "name": "dtype",
+      "category": "array-properties",
+      "status": "locked",
+      "mustPreserve": true
+    },
+    {
+      "id": "cell-selection",
+      "name": "Cell Selection",
+      "category": "interaction",
+      "status": "locked",
+      "mustPreserve": true
+    },
+    {
+      "id": "quick-examples",
+      "name": "Quick Examples",
+      "category": "interaction",
+      "status": "locked",
+      "mustPreserve": true
+    },
+    {
+      "id": "numpy-code",
+      "name": "NumPy Code Display",
+      "category": "education",
+      "status": "locked",
+      "mustPreserve": true
+    },
+    {
+      "id": "shape-playground",
+      "name": "Shape Playground",
+      "category": "playground",
+      "status": "locked",
+      "mustPreserve": true
+    },
+    {
+      "id": "step-controls",
+      "name": "Previous / Next / Reset Controls",
+      "category": "playground",
+      "status": "locked",
+      "mustPreserve": true
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "numpy-project-guardian",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "guardian": "node guardian/run.js",
+    "test": "vitest",
+    "test:ui": "playwright test",
+    "guardian:test": "npm run test && npm run test:ui"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "vitest": "^5.0.3"
+  }
+}

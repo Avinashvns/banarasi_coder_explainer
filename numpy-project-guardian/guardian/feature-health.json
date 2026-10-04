@@ -1,0 +1,128 @@
+{
+  "version": "1.0.0",
+  "description": "Maps protected NumPy project features to their verification requirements.",
+
+  "features": [
+    {
+      "id": "array-input",
+      "verification": {
+        "type": "unit",
+        "tests": [
+          "array-input-exists",
+          "array-input-accepts-data"
+        ]
+      }
+    },
+    {
+      "id": "array-validation",
+      "verification": {
+        "type": "unit",
+        "tests": [
+          "array-validation-valid",
+          "array-validation-invalid"
+        ]
+      }
+    },
+    {
+      "id": "array-rendering",
+      "verification": {
+        "type": "ui",
+        "tests": [
+          "array-rendering-visible",
+          "array-rendering-cells"
+        ]
+      }
+    },
+    {
+      "id": "shape",
+      "verification": {
+        "type": "unit",
+        "tests": [
+          "shape-calculation",
+          "shape-output"
+        ]
+      }
+    },
+    {
+      "id": "ndim",
+      "verification": {
+        "type": "unit",
+        "tests": [
+          "ndim-calculation"
+        ]
+      }
+    },
+    {
+      "id": "size",
+      "verification": {
+        "type": "unit",
+        "tests": [
+          "size-calculation"
+        ]
+      }
+    },
+    {
+      "id": "dtype",
+      "verification": {
+        "type": "unit",
+        "tests": [
+          "dtype-detection"
+        ]
+      }
+    },
+    {
+      "id": "cell-selection",
+      "verification": {
+        "type": "ui",
+        "tests": [
+          "cell-selection-click",
+          "cell-selection-highlight",
+          "cell-selection-explanation"
+        ]
+      }
+    },
+    {
+      "id": "quick-examples",
+      "verification": {
+        "type": "ui",
+        "tests": [
+          "quick-example-click",
+          "quick-example-load"
+        ]
+      }
+    },
+    {
+      "id": "numpy-code",
+      "verification": {
+        "type": "ui",
+        "tests": [
+          "numpy-code-visible",
+          "numpy-code-updates"
+        ]
+      }
+    },
+    {
+      "id": "shape-playground",
+      "verification": {
+        "type": "ui",
+        "tests": [
+          "shape-playground-opens",
+          "shape-playground-next",
+          "shape-playground-previous",
+          "shape-playground-reset"
+        ]
+      }
+    },
+    {
+      "id": "step-controls",
+      "verification": {
+        "type": "ui",
+        "tests": [
+          "previous-control",
+          "next-control",
+          "reset-control"
+        ]
+      }
+    }
+  ]
+}
