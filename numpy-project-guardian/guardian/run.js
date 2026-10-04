@@ -34,7 +34,16 @@ const checks = [
   {
     name: "Unit Tests",
     command: "node",
-    args: ["node_modules/vitest/vitest.mjs", "run"],
+    args: [
+      "node_modules/vitest/vitest.mjs",
+      "run",
+      "tests/unit",
+    ],
+  },
+  {
+    name: "Browser / UI Tests",
+    command: "npx",
+    args: ["playwright", "test"],
   },
 ];
 

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>NumPy Project Guardian</title>
+
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div class="brand">
+
+                <div class="shield">🛡️</div>
+
+                <div>
+                    <h1>NUMPY PROJECT GUARDIAN</h1>
+                    <p>Project Protection & Regression Monitor</p>
+                </div>
+
+            </div>
+
+            <div class="header-actions">
+
+                <div id="systemStatus" class="status-badge neutral">
+                    ● READY
+                </div>
+
+                <button id="runGuardian" class="run-button">
+                    🛡 RUN GUARDIAN
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- HERO STATUS -->
+        <section class="hero-card">
+
+            <div>
+
+                <div class="eyebrow">
+                    GUARDIAN STATUS
+                </div>
+
+                <h2 id="overallStatus">
+                    READY TO CHECK
+                </h2>
+
+                <p id="overallMessage">
+                    Run Guardian to verify the NumPy Visual Explainer.
+                </p>
+
+            </div>
+
+            <div id="statusIcon" class="status-icon neutral">
+                🛡️
+            </div>
+
+        </section>
+
+
+        <!-- CHECK CARDS -->
+        <section class="checks-grid">
+
+            <article class="check-card">
+
+                <div class="check-header">
+                    <span>Feature Protection</span>
+                    <span id="featureStatus" class="check-status neutral">
+                        —
+                    </span>
+                </div>
+
+                <div class="check-value" id="featureValue">
+                    Waiting
+                </div>
+
+                <p>
+                    Protected features and feature anchors
+                </p>
+
+            </article>
+
+
+            <article class="check-card">
+
+                <div class="check-header">
+                    <span>Project Integrity</span>
+                    <span id="projectStatus" class="check-status neutral">
+                        —
+                    </span>
+                </div>
+
+                <div class="check-value" id="projectValue">
+                    Waiting
+                </div>
+
+                <p>
+                    Required files and project structure
+                </p>
+
+            </article>
+
+
+            <article class="check-card">
+
+                <div class="check-header">
+                    <span>Git Diff</span>
+                    <span id="gitStatus" class="check-status neutral">
+                        —
+                    </span>
+                </div>
+
+                <div class="check-value" id="gitValue">
+                    Waiting
+                </div>
+
+                <p>
+                    Changes against Guardian baseline
+                </p>
+
+            </article>
+
+
+            <article class="check-card">
+
+                <div class="check-header">
+                    <span>Unit Tests</span>
+                    <span id="testStatus" class="check-status neutral">
+                        —
+                    </span>
+                </div>
+
+                <div class="check-value" id="testValue">
+                    Waiting
+                </div>
+
+                <p>
+                    Automated Guardian tests
+                </p>
+
+            </article>
+
+            
+
+
+        </section>
+
+
+        <!-- MAIN GRID -->
+        <section class="main-grid">
+
+            <!-- FEATURES -->
+            <article class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <span class="panel-kicker">
+                            PROTECTION
+                        </span>
+
+                        <h3>
+                            Protected Features
+                        </h3>
+                    </div>
+
+                    <div id="featureCount" class="panel-count">
+                        —
+                    </div>
+
+                </div>
+
+                <div id="featureList" class="feature-list">
+
+                    <div class="empty-state">
+                        Run Guardian to inspect features.
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- GIT -->
+            <article class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <span class="panel-kicker">
+                            VERSION CONTROL
+                        </span>
+
+                        <h3>
+                            Git Baseline
+                        </h3>
+                    </div>
+
+                </div>
+
+                <div class="git-info">
+
+                    <div class="git-row">
+                        <span>Baseline</span>
+                        <strong id="baseline">
+                            —
+                        </strong>
+                    </div>
+
+                    <div class="git-row">
+                        <span>Current</span>
+                        <strong id="current">
+                            —
+                        </strong>
+                    </div>
+
+                    <div class="git-row">
+                        <span>Changed Files</span>
+                        <strong id="changedFiles">
+                            —
+                        </strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- LOG PANEL -->
+        <section class="panel log-panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <span class="panel-kicker">
+                        EXECUTION LOG
+                    </span>
+
+                    <h3>
+                        Guardian Output
+                    </h3>
+                </div>
+
+                <button id="clearLog" class="small-button">
+                    Clear
+                </button>
+
+            </div>
+
+            <pre id="log">Guardian is ready.</pre>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <span>
+                NumPy Project Guardian
+            </span>
+
+            <span>
+                Protecting NumPy Visual Explainer
+            </span>
+
+        </footer>
+
+    </div>
+
+
+    <script src="./app.js"></script>
+
+</body>
+
+</html>

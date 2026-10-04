@@ -8,7 +8,9 @@
     "guardian": "node guardian/run.js",
     "test": "vitest",
     "test:ui": "playwright test",
-    "guardian:test": "npm run test && npm run test:ui"
+    "ui:test": "playwright test",
+    "guardian:test": "npm run test && npm run test:ui",
+    "dashboard": "node guardian/dashboard-server.js"
   },
   "keywords": [],
   "author": "",
