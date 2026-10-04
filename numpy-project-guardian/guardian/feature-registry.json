@@ -1,0 +1,116 @@
+
+{
+  "project": "NumPy Visual Explainer",
+
+  "features": [
+    {
+      "id": "array-input",
+      "status": "planned",
+      "verification": {
+        "file": "src/App.jsx",
+        "anchors": []
+      }
+    },
+    {
+      "id": "array-validation",
+      "status": "planned",
+      "verification": {
+        "file": "src/App.jsx",
+        "anchors": []
+      }
+    },
+    {
+      "id": "array-rendering",
+      "status": "implemented",
+      "verification": {
+        "file": "src/App.jsx",
+        "anchors": [
+          "Array Playground",
+          "NumPy Visualization Engine"
+        ]
+      }
+    },
+    {
+      "id": "shape",
+      "status": "implemented",
+      "verification": {
+        "file": "src/App.jsx",
+        "anchors": [
+          "SHAPE"
+        ]
+      }
+    },
+    {
+      "id": "ndim",
+      "status": "implemented",
+      "verification": {
+        "file": "src/App.jsx",
+        "anchors": [
+          "NDIM"
+        ]
+      }
+    },
+    {
+      "id": "size",
+      "status": "implemented",
+      "verification": {
+        "file": "src/App.jsx",
+        "anchors": [
+          "SIZE"
+        ]
+      }
+    },
+    {
+      "id": "dtype",
+      "status": "implemented",
+      "verification": {
+        "file": "src/App.jsx",
+        "anchors": [
+          "DTYPE"
+        ]
+      }
+    },
+    {
+      "id": "cell-selection",
+      "status": "planned",
+      "verification": {
+        "file": "src/App.jsx",
+        "anchors": []
+      }
+    },
+    {
+      "id": "quick-examples",
+      "status": "planned",
+      "verification": {
+        "file": "src/App.jsx",
+        "anchors": []
+      }
+    },
+    {
+      "id": "numpy-code",
+      "status": "implemented",
+      "verification": {
+        "file": "src/App.jsx",
+        "anchors": [
+          "NUMPY CODE"
+        ]
+      }
+    },
+    {
+      "id": "shape-playground",
+      "status": "planned",
+      "verification": {
+        "file": "src/App.jsx",
+        "anchors": []
+      }
+    },
+    {
+      "id": "step-controls",
+      "status": "planned",
+      "verification": {
+        "file": "src/App.jsx",
+        "anchors": []
+      }
+    }
+  ]
+}
