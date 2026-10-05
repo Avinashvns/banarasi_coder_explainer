@@ -1,7 +1,5 @@
-
 {
   "project": "NumPy Visual Explainer",
-
   "features": [
     {
       "id": "array-input",
@@ -37,7 +35,11 @@
         "file": "src/App.jsx",
         "anchors": [
           "SHAPE"
-        ]
+        ],
+        "ui": {
+          "required": true,
+          "selector": "[data-feature=\"shape\"]"
+        }
       }
     },
     {
