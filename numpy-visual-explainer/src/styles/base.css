@@ -1,0 +1,1803 @@
+/* =========================================================
+
+   NUMPY VISUAL EXPLAINER
+
+   Banarasi Coder
+
+   Premium YouTube / OBS Friendly UI
+
+========================================================= */
+
+
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+
+
+:root {
+
+  font-family:
+
+    Inter,
+
+    "Segoe UI",
+
+    Roboto,
+
+    Helvetica,
+
+    Arial,
+
+    sans-serif;
+
+
+
+  color: #eaf8ff;
+
+  background: #040a12;
+
+
+
+  font-synthesis: none;
+
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+
+
+html,
+
+body,
+
+#root {
+
+  width: 100%;
+
+  min-width: 1200px;
+
+  min-height: 100%;
+
+  margin: 0;
+
+}
+
+
+
+body {
+
+  min-height: 100vh;
+
+
+
+  background:
+
+    radial-gradient(circle at 15% 5%,
+
+      rgba(0, 190, 255, 0.13),
+
+      transparent 30%),
+
+    radial-gradient(circle at 85% 85%,
+
+      rgba(0, 110, 255, 0.09),
+
+      transparent 35%),
+
+    linear-gradient(135deg,
+
+      #040a12 0%,
+
+      #06111d 50%,
+
+      #040a12 100%);
+
+
+
+  overflow-x: auto;
+
+}
+
+
+
+button {
+
+  font: inherit;
+
+}
+
+
+
+button:focus-visible {
+
+  outline: 2px solid #00c8ff;
+
+  outline-offset: 2px;
+
+}
+
+
+
+/* =========================================================
+
+   APP
+
+========================================================= */
+
+
+
+.app {
+
+  min-height: 100vh;
+
+
+
+  background:
+
+    linear-gradient(180deg,
+
+      rgba(3, 12, 23, 0.15),
+
+      rgba(3, 10, 18, 0.35));
+
+}
+
+
+
+/* =========================================================
+
+   HEADER
+
+========================================================= */
+
+
+
+.topbar {
+
+  min-height: 88px;
+
+
+
+  display: flex;
+
+  align-items: center;
+
+
+
+  gap: 28px;
+
+
+
+  padding: 8px 24px;
+
+
+
+  border-bottom: 1px solid rgba(93, 208, 255, 0.15);
+
+
+
+  background:
+
+    linear-gradient(90deg,
+
+      rgba(4, 15, 28, 0.98),
+
+      rgba(5, 18, 32, 0.96));
+
+
+
+  position: sticky;
+
+  top: 0;
+
+
+
+  z-index: 100;
+
+
+
+  box-shadow:
+
+    0 8px 30px rgba(0, 0, 0, 0.2);
+
+}
+
+
+
+.brand {
+
+  flex: 0 0 auto;
+
+
+
+  display: flex;
+
+  align-items: center;
+
+
+
+  gap: 14px;
+
+}
+
+
+
+.brand-icon {
+
+  width: 52px;
+
+  height: 52px;
+
+
+
+  display: grid;
+
+  place-items: center;
+
+
+
+  border-radius: 12px;
+
+
+
+  background:
+
+    linear-gradient(135deg,
+
+      #00cfff 0%,
+
+      #0878ff 100%);
+
+
+
+  color: #ffffff;
+
+
+
+  font-size: 18px;
+
+  font-weight: 900;
+
+
+
+  letter-spacing: 0.5px;
+
+
+
+  box-shadow:
+
+    0 0 28px rgba(0, 188, 255, 0.28);
+
+}
+
+
+
+.brand-text h1 {
+
+  margin: 0;
+
+
+
+  color: #f3fbff;
+
+
+
+  font-size: 21px;
+
+  line-height: 1.1;
+
+
+
+  font-weight: 900;
+
+
+
+  letter-spacing: 1.8px;
+
+}
+
+
+
+.brand-text span {
+
+  display: block;
+
+
+
+  margin-top: 5px;
+
+
+
+  color: #7c9ab0;
+
+
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+
+
+  letter-spacing: 0.5px;
+
+}
+
+
+
+/* =========================================================
+
+   HEADER STATUS
+
+========================================================= */
+
+
+
+.header-status {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+
+
+  padding: 9px 14px;
+
+
+
+  border: 1px solid rgba(63, 230, 175, 0.2);
+
+  border-radius: 999px;
+
+
+
+  background: rgba(30, 180, 140, 0.045);
+
+
+
+  color: #8ee9ca;
+
+
+
+  font-size: 12px;
+
+  font-weight: 650;
+
+}
+
+
+
+.status-dot {
+
+  width: 8px;
+
+  height: 8px;
+
+
+
+  border-radius: 50%;
+
+
+
+  background: #31e6a2;
+
+
+
+  box-shadow:
+
+    0 0 12px rgba(49, 230, 162, 0.75);
+
+}
+
+
+
+/* =========================================================
+
+   TOP MODULE NAVIGATION
+
+========================================================= */
+
+
+
+.module-nav {
+
+  flex: 1;
+
+
+
+  min-width: 0;
+
+
+
+  display: flex;
+
+  align-items: center;
+
+
+
+  flex-wrap: wrap;
+
+
+
+  gap: 0 3px;
+
+
+
+  padding: 0;
+
+
+
+  background: transparent;
+
+
+
+  overflow: hidden;
+
+}
+
+
+
+.module-nav-item {
+
+  flex: 0 0 auto;
+
+
+
+  min-height: 36px;
+
+
+
+  padding: 0 13px;
+
+
+
+  border: 0;
+
+
+
+  border-bottom: 2px solid transparent;
+
+
+
+  background: transparent;
+
+
+
+  color: #718ea2;
+
+
+
+  font-size: 13px;
+
+
+
+  font-weight: 650;
+
+
+
+  white-space: nowrap;
+
+
+
+  cursor: pointer;
+
+
+
+  transition:
+
+    color 0.18s ease,
+
+    background 0.18s ease,
+
+    border-color 0.18s ease;
+
+}
+
+
+
+.module-nav-item:hover {
+
+  color: #c9f3ff;
+
+
+
+  background:
+
+    rgba(0, 180, 240, 0.055);
+
+}
+
+
+
+.module-nav-item.active {
+
+  color: #ecfbff;
+
+
+
+  border-bottom-color: #00cfff;
+
+
+
+  background:
+
+    rgba(0, 190, 255, 0.08);
+
+}
+
+
+
+/* =========================================================
+
+   MAIN 20 : 60 : 20
+
+========================================================= */
+
+
+
+.main-grid {
+
+  width: 100%;
+
+
+
+  display: grid;
+
+
+
+  grid-template-columns:
+
+    20% 60% 20%;
+
+
+
+  min-height:
+
+    calc(100vh - 140px);
+
+
+
+  border-bottom: 1px solid rgba(94, 208, 255, 0.1);
+
+}
+
+
+
+/* =========================================================
+
+   COLUMN TITLES
+
+========================================================= */
+
+
+
+.column-title {
+
+  color: #8ecde3;
+
+
+
+  font-size: 13px;
+
+  font-weight: 850;
+
+
+
+  letter-spacing: 1.5px;
+
+
+
+  white-space: nowrap;
+
+}
+
+
+
+/* =========================================================
+
+   LEFT — ARRAY INPUT
+
+========================================================= */
+
+
+
+.input-column {
+
+  min-width: 0;
+
+
+
+  padding: 24px 18px;
+
+
+
+  border-right:
+
+    1px solid rgba(94, 208, 255, 0.11);
+
+
+
+  background:
+
+    linear-gradient(180deg,
+
+      rgba(3, 12, 23, 0.86),
+
+      rgba(3, 10, 18, 0.72));
+
+
+
+  overflow-y: auto;
+
+}
+
+
+
+.input-column>.column-title {
+
+  margin: 2px 4px 16px;
+
+}
+
+
+
+.array-input-panel {
+
+  width: 100%;
+
+
+
+  display: flex;
+
+  flex-direction: column;
+
+
+
+  padding: 0;
+
+
+
+  margin: 0;
+
+
+
+  border: 0;
+
+
+
+  background: transparent;
+
+}
+
+
+
+.array-input {
+
+  width: 100%;
+
+  min-height: 170px;
+
+
+
+  resize: vertical;
+
+
+
+  padding: 15px;
+
+
+
+  border:
+
+    1px solid rgba(0, 210, 255, 0.18);
+
+
+
+  border-radius: 11px;
+
+
+
+  outline: none;
+
+
+
+  background:
+
+    rgba(2, 10, 18, 0.94);
+
+
+
+  color: #e9f7ff;
+
+
+
+  font-family:
+
+    "Cascadia Code",
+
+    "JetBrains Mono",
+
+    Consolas,
+
+    monospace;
+
+
+
+  font-size: 15px;
+
+  line-height: 1.7;
+
+
+
+  transition:
+
+    border-color 0.18s ease,
+
+    box-shadow 0.18s ease;
+
+}
+
+
+
+.array-input:focus {
+
+  border-color:
+
+    rgba(0, 217, 255, 0.65);
+
+
+
+  box-shadow:
+
+    0 0 20px rgba(0, 217, 255, 0.08);
+
+}
+
+
+
+.array-input::placeholder {
+
+  color: #47667a;
+
+}
+
+
+
+.array-input-error {
+
+  margin-top: 10px;
+
+
+
+  padding: 10px 12px;
+
+
+
+  border:
+
+    1px solid rgba(255, 80, 100, 0.25);
+
+
+
+  border-radius: 8px;
+
+
+
+  background:
+
+    rgba(255, 60, 80, 0.06);
+
+
+
+  color: #ff7d8c;
+
+
+
+  font-size: 12px;
+
+  line-height: 1.5;
+
+}
+
+
+
+.apply-array-button {
+
+  width: 100%;
+
+
+
+  margin-top: 12px;
+
+
+
+  padding: 12px 16px;
+
+
+
+  border:
+
+    1px solid rgba(0, 217, 255, 0.35);
+
+
+
+  border-radius: 9px;
+
+
+
+  background:
+
+    rgba(0, 217, 255, 0.08);
+
+
+
+  color: #00d9ff;
+
+
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+
+
+  letter-spacing: 0.5px;
+
+
+
+  cursor: pointer;
+
+
+
+  transition:
+
+    background 0.18s ease,
+
+    border-color 0.18s ease,
+
+    transform 0.18s ease,
+
+    box-shadow 0.18s ease;
+
+}
+
+
+
+.apply-array-button:hover {
+
+  background:
+
+    rgba(0, 217, 255, 0.14);
+
+
+
+  border-color:
+
+    rgba(0, 217, 255, 0.65);
+
+
+
+  box-shadow:
+
+    0 0 18px rgba(0, 217, 255, 0.08);
+
+
+
+  transform: translateY(-1px);
+
+}
+
+
+
+.apply-array-button:active {
+
+  transform: translateY(0);
+
+}
+
+
+
+/* =========================================================
+
+   CENTER — ARRAY PLAYGROUND
+
+========================================================= */
+
+
+
+.playground-column {
+
+  min-width: 0;
+
+
+
+  display: flex;
+
+  flex-direction: column;
+
+
+
+  background:
+
+    radial-gradient(circle at 50% 45%,
+
+      rgba(0, 170, 235, 0.065),
+
+      transparent 45%),
+
+    linear-gradient(145deg,
+
+      rgba(8, 29, 47, 0.78),
+
+      rgba(3, 13, 25, 0.94));
+
+
+
+  overflow: hidden;
+
+}
+
+
+
+.playground-header {
+
+  height: 62px;
+
+
+
+  display: flex;
+
+  align-items: center;
+
+
+
+  padding: 0 24px;
+
+
+
+  border-bottom:
+
+    1px solid rgba(100, 210, 255, 0.1);
+
+
+
+  flex-shrink: 0;
+
+}
+
+
+
+.playground-header h2 {
+
+  margin: 0;
+
+
+
+  color: #eaf9ff;
+
+
+
+  font-size: 18px;
+
+  font-weight: 800;
+
+
+
+  letter-spacing: 1px;
+
+}
+
+
+
+.playground {
+
+  flex: 1;
+
+
+
+  min-height: 500px;
+
+
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: center;
+
+
+
+  padding: 50px;
+
+
+
+  overflow: auto;
+
+}
+
+
+
+/* =========================================================
+
+   ARRAY VISUALIZER
+
+========================================================= */
+
+
+
+.visual-area {
+
+  width: 100%;
+
+  height: 100%;
+
+
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+
+
+  padding: 0;
+
+
+
+  overflow: auto;
+
+}
+
+
+
+.array-grid-wrapper {
+
+  display: inline-flex;
+
+  flex-direction: column;
+
+
+
+  gap: 8px;
+
+
+
+  user-select: none;
+
+}
+
+
+
+.array-column-labels {
+
+  display: grid;
+
+
+
+  gap: 20px;
+
+}
+
+
+
+.corner-cell {
+
+  width: 54px;
+
+  height: 32px;
+
+}
+
+
+
+.array-body {
+
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+
+
+  gap: 20px !important;
+
+}
+
+
+
+.array-row {
+
+  display: grid;
+
+  gap: 20px;
+
+}
+
+
+
+
+
+
+
+.axis-label {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+
+
+  color: #7190a5;
+
+
+
+  font-size: 13px;
+
+  font-weight: 650;
+
+}
+
+
+
+.column-label {
+
+  height: 32px;
+
+}
+
+
+
+.row-label {
+
+  min-height: 72px;
+
+}
+
+
+
+.array-cell {
+
+  width: 92px;
+
+  height: 72px;
+
+
+
+  position: relative;
+
+  z-index: 1;
+
+  border:
+
+    1px solid rgba(0, 210, 255, 0.18);
+
+
+
+  border-radius: 11px;
+
+
+
+  background:
+
+    rgba(8, 20, 34, 0.96);
+
+
+
+  color: #e9f7ff;
+
+
+
+  font-size: 24px;
+
+  font-weight: 750;
+
+
+
+  cursor: pointer;
+
+
+
+  transition:
+
+    transform 0.15s ease,
+
+    border-color 0.15s ease,
+
+    background 0.15s ease,
+
+    box-shadow 0.15s ease;
+
+}
+
+
+
+.array-cell:hover {
+
+  z-index: 2;
+
+
+
+  border-color:
+
+    rgba(0, 210, 255, 0.65);
+
+
+
+  background:
+
+    rgba(10, 35, 52, 1);
+
+
+
+  box-shadow:
+
+    0 8px 22px rgba(0, 0, 0, 0.22);
+
+}
+
+
+
+.array-cell.selected {
+
+  z-index: 5;
+
+
+
+  border: 2px solid #00d9ff;
+
+  border-radius: 11px;
+
+
+
+  background: rgba(0, 217, 255, 0.30);
+
+
+
+  color: #ffffff;
+
+
+
+  box-shadow:
+
+    0 0 0 3px rgba(0, 217, 255, 0.15),
+
+    0 0 28px rgba(0, 217, 255, 0.30);
+
+}
+
+
+
+.array-grid-empty {
+
+  color: #6f8299;
+
+
+
+  font-size: 15px;
+
+}
+
+
+
+/* =========================================================
+
+   RIGHT COLUMN
+
+========================================================= */
+
+
+
+.right-column {
+
+  min-width: 0;
+
+
+
+  display: grid;
+
+
+
+  grid-template-rows:
+
+    1fr 1fr;
+
+
+
+  border-left:
+
+    1px solid rgba(94, 208, 255, 0.11);
+
+
+
+  background:
+
+    linear-gradient(180deg,
+
+      rgba(3, 11, 21, 0.92),
+
+      rgba(3, 10, 18, 0.78));
+
+
+
+  overflow: hidden;
+
+}
+
+
+
+/* =========================================================
+
+   ARRAY INSPECTOR
+
+========================================================= */
+
+
+
+.inspector-panel {
+
+  min-width: 0;
+
+
+
+  padding: 22px 16px;
+
+
+
+  border-bottom:
+
+    1px solid rgba(94, 208, 255, 0.11);
+
+
+
+  overflow-y: auto;
+
+}
+
+
+
+.inspector-panel>.column-title {
+
+  margin: 2px 4px 16px;
+
+}
+
+
+
+.metrics {
+
+  display: flex;
+
+  flex-direction: column;
+
+
+
+  gap: 7px;
+
+}
+
+
+
+.metric {
+
+  min-height: 55px;
+
+
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+
+
+  gap: 10px;
+
+
+
+  padding: 12px;
+
+
+
+  border:
+
+    1px solid rgba(100, 200, 240, 0.08);
+
+
+
+  border-radius: 9px;
+
+
+
+  background:
+
+    linear-gradient(90deg,
+
+      rgba(20, 65, 88, 0.11),
+
+      rgba(10, 35, 55, 0.05));
+
+}
+
+
+
+.metric span {
+
+  color: #68879c;
+
+
+
+  font-size: 11px;
+
+  font-weight: 850;
+
+
+
+  letter-spacing: 1.2px;
+
+}
+
+
+
+.metric strong {
+
+  color: #9ce3ff;
+
+
+
+  font-family:
+
+    "Cascadia Code",
+
+    "JetBrains Mono",
+
+    Consolas,
+
+    monospace;
+
+
+
+  font-size: 15px;
+
+  font-weight: 750;
+
+
+
+  text-align: right;
+
+}
+
+
+
+.selected-cell-panel {
+
+  margin-top: 16px;
+
+  padding: 16px;
+
+
+
+  border: 1px solid rgba(94, 208, 255, 0.22);
+
+  border-radius: 10px;
+
+
+
+  background: rgba(94, 208, 255, 0.035);
+
+}
+
+
+
+.selected-cell-title {
+
+  margin: 0 0 12px;
+
+
+
+  color: #8ecde3;
+
+
+
+  font-size: 13px;
+
+  font-weight: 850;
+
+
+
+  letter-spacing: 1.5px;
+
+}
+
+
+
+.selected-cell-info {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+}
+
+
+
+.selected-cell-item {
+
+  min-height: 52px;
+
+
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+
+
+  padding: 11px 12px;
+
+
+
+  border: 1px solid rgba(94, 208, 255, 0.18);
+
+  border-radius: 8px;
+
+
+
+  background: rgba(8, 20, 34, 0.75);
+
+}
+
+
+
+.selected-cell-item span {
+
+  color: #7893a5;
+
+
+
+  font-size: 11px;
+
+  font-weight: 850;
+
+
+
+  letter-spacing: 1px;
+
+}
+
+
+
+.selected-cell-item strong {
+
+  color: #baf1ff;
+
+
+
+  font-family:
+
+    "JetBrains Mono",
+
+    "Fira Code",
+
+    Consolas,
+
+    monospace;
+
+
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+}
+
+
+
+/* =========================================================
+
+   NUMPY CODE
+
+========================================================= */
+
+
+
+.code-panel {
+
+  min-width: 0;
+
+
+
+  padding: 22px 16px;
+
+
+
+  overflow: auto;
+
+}
+
+
+
+.code-panel>.column-title {
+
+  margin: 2px 4px 16px;
+
+}
+
+
+
+.code-panel pre {
+
+  margin: 0;
+
+
+
+  color: #9bdef8;
+
+
+
+  font-family:
+
+    "JetBrains Mono",
+
+    "Fira Code",
+
+    Consolas,
+
+    monospace;
+
+
+
+  font-size: 12px;
+
+  line-height: 1.55;
+
+
+
+  white-space: pre;
+
+  overflow-x: auto;
+
+  overflow-y: auto;
+
+
+
+  tab-size: 4;
+
+
+
+  scrollbar-width: thin;
+
+}
+
+
+
+/* =========================================================
+
+   GUARDIAN BAR
+
+========================================================= */
+
+
+
+.guardian-bar {
+
+  min-height: 38px;
+
+
+
+  display: flex;
+
+  align-items: center;
+
+
+
+  justify-content: center;
+
+
+
+  gap: 8px;
+
+
+
+  border-top:
+
+    1px solid rgba(63, 230, 175, 0.09);
+
+
+
+  background:
+
+    rgba(3, 12, 20, 0.92);
+
+
+
+  color: #70c9aa;
+
+
+
+  font-size: 11px;
+
+}
+
+
+
+.guardian-bar .shield {
+
+  font-size: 14px;
+
+}
+
+
+
+.guardian-bar strong {
+
+  font-weight: 700;
+
+}
+
+
+
+/* =========================================================
+
+   SCROLLBARS
+
+========================================================= */
+
+
+
+::-webkit-scrollbar {
+
+  width: 8px;
+
+  height: 8px;
+
+}
+
+
+
+::-webkit-scrollbar-track {
+
+  background: #040a12;
+
+}
+
+
+
+::-webkit-scrollbar-thumb {
+
+  background: #193b50;
+
+
+
+  border-radius: 10px;
+
+
+
+  border: 2px solid #040a12;
+
+}
+
+
+
+::-webkit-scrollbar-thumb:hover {
+
+  background: #24566f;
+
+}

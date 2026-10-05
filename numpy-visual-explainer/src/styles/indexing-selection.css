@@ -1,0 +1,172 @@
+/* =========================================================
+   INDEXING + ROW/COLUMN SELECTION
+   ========================================================= */
+
+.indexing-guide,
+.selection-guide {
+  display: grid;
+  width: max-content;
+  min-width: 100%;
+  margin-bottom: 8px;
+}
+
+.indexing-guide-content,
+.selection-guide-content {
+  grid-column: 2 / -1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #5b35d5;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.visual-indexing .array-cell {
+  position: relative;
+  padding: 10px 8px 8px !important;
+}
+
+.visual-indexing .cell-value {
+  display: block;
+  line-height: 1;
+}
+
+.visual-indexing .cell-index {
+  display: block;
+  margin-top: 7px;
+
+  color: #6b39d8;
+  font-family:
+    "JetBrains Mono",
+    "Fira Code",
+    Consolas,
+    monospace;
+
+  font-size: 13px;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.visual-indexing .array-cell.indexing-highlight {
+  border-color: rgba(92, 72, 220, 0.34) !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.88),
+      rgba(231, 226, 255, 0.78)
+    ) !important;
+}
+
+.visual-indexing .array-cell.selected {
+  border-color: transparent !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #8f21ff 0%,
+      #6539ee 42%,
+      #287fff 100%
+    ) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.12),
+    0 12px 28px rgba(94, 52, 225, 0.30);
+}
+
+.visual-indexing .array-cell.selected .cell-index {
+  color: #ffffff !important;
+}
+
+.visual-row-selection .row-selection-highlight {
+  border-color: rgba(124, 44, 255, 0.42) !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(143, 33, 255, 0.22),
+      rgba(40, 127, 255, 0.18)
+    ) !important;
+
+  box-shadow:
+    0 0 18px rgba(101, 58, 232, 0.12);
+}
+
+.visual-column-selection .column-selection-highlight {
+  border-color: rgba(40, 127, 255, 0.48) !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(40, 127, 255, 0.22),
+      rgba(143, 33, 255, 0.18)
+    ) !important;
+
+  box-shadow:
+    0 0 18px rgba(58, 92, 232, 0.12);
+}
+
+.visual-row-selection .selection-index-highlight,
+.visual-column-selection .selection-index-highlight {
+  color: #ffffff !important;
+  font-weight: 900 !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #8f21ff,
+      #6539ee 45%,
+      #287fff
+    ) !important;
+
+  border-radius: 8px;
+  box-shadow:
+    0 6px 14px rgba(101, 58, 232, 0.20);
+
+  cursor: pointer;
+}
+
+.visual-row-selection .row-label,
+.visual-column-selection .column-label {
+  cursor: pointer;
+}
+
+.visual-row-selection .array-cell.selected,
+.visual-column-selection .array-cell.selected {
+  border: 2px solid #6539ee !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #8f21ff 0%,
+      #6539ee 42%,
+      #287fff 100%
+    ) !important;
+
+  color: #ffffff !important;
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.12),
+    0 12px 28px rgba(94, 52, 225, 0.28);
+}
+
+.metric.metric-active {
+  background:
+    linear-gradient(
+      90deg,
+      #8f21ff 0%,
+      #6539ee 40%,
+      #287fff 100%
+    ) !important;
+
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+.metric.metric-active span,
+.metric.metric-active strong {
+  color: #ffffff !important;
+}

@@ -1,0 +1,342 @@
+/* =========================================================
+   SHAPE — KEEP THE CURRENT GOOD VISUAL
+   ========================================================= */
+
+.shape-column-content {
+  color: #1769ff !important;
+  font-size: 18px;
+  font-weight: 850;
+}
+
+.shape-column-content strong {
+  color: #2055ca !important;
+  font-size: 17px;
+}
+
+.shape-line {
+  background: #65a7ff !important;
+}
+
+.shape-row-label span {
+  color: #6d32dc !important;
+  font-size: 18px;
+  font-weight: 850;
+}
+
+.shape-row-label strong {
+  color: #6d32dc !important;
+  font-size: 17px;
+}
+
+.shape-row-line {
+  width: 1px;
+  height: 18px;
+  background: linear-gradient(180deg, #368fff, #8b35ed) !important;
+}
+
+/* =========================================================
+   NDIM — FINAL
+   ========================================================= */
+
+/*
+  IMPORTANT:
+  .ndim-row-direction must be rendered inside .array-body
+  in ArrayGrid.jsx for exact vertical alignment with the
+  actual array height.
+
+  This CSS is intentionally prepared for that structure.
+*/
+
+.ndim-guide {
+  position: relative;
+  width: max-content;
+  min-width: 100%;
+  min-height: 48px;
+  height: auto;
+  margin-bottom: 8px;
+
+  display: grid;
+  align-items: center;
+}
+
+.ndim-row-direction {
+  position: absolute;
+
+  right: calc(100% + 18px);
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 110px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  color: #7138dc;
+
+  font-size: 18px;
+  font-weight: 850;
+
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+
+  pointer-events: none;
+  z-index: 4;
+}
+
+.ndim-row-label {
+  color: #7138dc !important;
+  font-size: 18px;
+  font-weight: 850;
+  letter-spacing: 0.8px;
+  text-align: center;
+}
+
+.ndim-row-line {
+  width: 1px;
+  height: calc(
+    24px + (var(--row-count) - 2) * 8px
+  );
+  min-height: 18px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #348eff,
+      #8d35ef
+    ) !important;
+}
+
+.ndim-column-direction {
+  grid-column: 2 / -1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  color: #1769ff !important;
+
+  font-size: 18px;
+  font-weight: 850;
+
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.ndim-arrow-right {
+  color: #1769ff !important;
+  font-size: 26px;
+  line-height: 1;
+}
+
+/* =========================================================
+   AXIS — FINAL
+   ========================================================= */
+
+.axis-guide {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+
+  display: grid;
+  align-items: center;
+
+  margin-bottom: 6px;
+}
+
+.axis-column-direction {
+  grid-column: 2 / -1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  color: #1769ff !important;
+
+  font-size: 18px !important;
+  font-weight: 900 !important;
+
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+}
+
+.axis-arrow-right {
+  color: #1769ff !important;
+  font-size: 24px !important;
+  font-weight: 900 !important;
+  line-height: 1;
+}
+
+.axis-row-direction {
+  position: absolute;
+
+  right: calc(100% + 18px);
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 110px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  color: #7138dc !important;
+
+  font-size: 18px;
+  font-weight: 850;
+
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+
+  pointer-events: none;
+  z-index: 4;
+}
+
+.axis-row-line {
+  width: 1px;
+  height: calc(
+    24px + (var(--row-count) - 2) * 8px
+  );
+
+  background:
+    linear-gradient(
+      180deg,
+      #348eff,
+      #8d35ef
+    ) !important;
+
+  box-shadow:
+    0 0 8px rgba(91, 70, 220, 0.18);
+}
+
+.axis-row-label,
+.axis-row-text {
+  color: #7138dc !important;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.7px;
+  text-align: center;
+}
+
+/* =========================================================
+   SIZE — FINAL
+   ========================================================= */
+
+.size-visual {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.size-calculation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 9px;
+  padding: 16px 14px;
+
+  border: 1px solid rgba(79, 70, 229, 0.14);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.54) !important;
+
+  color: #64779e;
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: 0.8px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.75),
+    0 8px 20px rgba(70, 91, 170, .06);
+}
+
+.size-calculation strong {
+  color: #2053c5 !important;
+
+  font-family:
+    "JetBrains Mono",
+    "Fira Code",
+    Consolas,
+    monospace;
+
+  font-size: 21px;
+}
+
+.size-calculation .size-symbol {
+  color: #477bea !important;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.size-calculation .size-total {
+  color: #6930d4 !important;
+  font-size: 27px;
+}
+
+.size-calculation span:last-child {
+  color: #7138dc !important;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+/* =========================================================
+   DTYPE — FINAL
+   ========================================================= */
+
+.dtype-guide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.dtype-type,
+.dtype-value {
+  padding: 7px 11px;
+
+  border: 1px solid rgba(79, 70, 229, 0.15);
+  border-radius: 7px;
+
+  background: rgba(255, 255, 255, 0.56) !important;
+
+  font-family:
+    "JetBrains Mono",
+    "Fira Code",
+    Consolas,
+    monospace;
+
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.dtype-type {
+  color: #63779e !important;
+}
+
+.dtype-value {
+  color: #2053c5 !important;
+}
+
+.dtype-arrow {
+  color: #6681b9 !important;
+  font-size: 18px;
+}

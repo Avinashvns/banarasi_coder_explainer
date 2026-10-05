@@ -1,0 +1,218 @@
+/* =========================================================
+   INSPECTOR
+   ========================================================= */
+
+.inspector-panel {
+  background: transparent !important;
+  border-bottom-color: rgba(79, 70, 229, 0.10) !important;
+}
+
+.inspector-panel > .column-title {
+  color: #2454c6 !important;
+  font-weight: 900 !important;
+}
+
+.metrics {
+  gap: 8px !important;
+}
+
+.metric {
+  min-height: 48px;
+
+  border: 1px solid rgba(91, 116, 220, 0.16) !important;
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.70),
+      rgba(238,243,255,.58)
+    ) !important;
+
+  box-shadow:
+    0 5px 16px rgba(70, 91, 170, 0.07),
+    inset 0 1px 0 rgba(255,255,255,.78);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.metric:hover {
+  border-color: rgba(76, 105, 230, 0.30) !important;
+  transform: translateY(-1px);
+}
+
+.metric span {
+  color: #1748b1 !important;
+  font-size: 10px !important;
+  font-weight: 900 !important;
+  letter-spacing: 1.15px !important;
+}
+
+.metric strong {
+  color: #153c9b !important;
+  font-size: 15px !important;
+  font-weight: 850 !important;
+}
+
+/* Individual inspector colors */
+.metric:nth-child(1) {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(174,239,255,.62),
+      rgba(211,237,255,.72)
+    ) !important;
+}
+
+.metric:nth-child(2) {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(226,195,255,.66),
+      rgba(239,217,255,.72)
+    ) !important;
+}
+
+.metric:nth-child(3) {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,196,245,.68),
+      rgba(247,216,255,.72)
+    ) !important;
+}
+
+.metric:nth-child(4) {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(183,250,224,.68),
+      rgba(206,250,235,.74)
+    ) !important;
+}
+
+.metric:nth-child(5) {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,226,157,.68),
+      rgba(255,240,194,.76)
+    ) !important;
+}
+
+.metric.metric-active {
+  color: #ffffff !important;
+  border-color: transparent !important;
+  background: linear-gradient(90deg, #8f21ff 0%, #6539ee 40%, #287fff 100%) !important;
+  box-shadow: 0 10px 24px rgba(101, 58, 232, 0.26) !important;
+  transform: translateY(-1px);
+}
+
+.metric.metric-active span,
+.metric.metric-active strong {
+  color: #ffffff !important;
+}
+
+/* ---------- SELECTED CELL ---------- */
+
+.selected-cell-panel {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(224,206,255,.70),
+      rgba(242,228,255,.64),
+      rgba(219,240,255,.64)
+    ) !important;
+
+  border-color: rgba(118, 91, 225, 0.20) !important;
+
+  box-shadow:
+    0 10px 26px rgba(86, 73, 176, 0.11),
+    inset 0 1px 0 rgba(255,255,255,.84);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.selected-cell-title {
+  color: #5a22d0 !important;
+}
+
+.selected-cell-item {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.72),
+      rgba(237,229,255,.62)
+    ) !important;
+
+  border-color: rgba(105, 108, 218, 0.15) !important;
+}
+
+.selected-cell-item span {
+  color: #5e70a0 !important;
+}
+
+.selected-cell-item strong {
+  color: #153e9f !important;
+}
+
+/* ---------- EXPLANATION ---------- */
+
+.visual-explanation {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.72),
+      rgba(232,225,255,.58),
+      rgba(225,241,255,.62)
+    ) !important;
+
+  border-color: rgba(79, 70, 229, 0.14) !important;
+  border-left-color: #6540ed !important;
+
+  box-shadow:
+    0 10px 28px rgba(87, 75, 180, 0.11);
+}
+
+.visual-explanation-title {
+  color: #5a27cf !important;
+}
+
+.visual-explanation-text {
+  color: #425b91 !important;
+}
+
+/* ---------- GUARDIAN BAR ---------- */
+
+.guardian-bar {
+  display: none !important;
+}
+
+/* ---------- SCROLLBARS ---------- */
+
+::-webkit-scrollbar-track {
+  background: rgba(224, 232, 251, 0.65) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background:
+    linear-gradient(
+      180deg,
+      #4f8dff,
+      #7c3aed,
+      #d946ef
+    ) !important;
+
+  border-color: transparent !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(
+      180deg,
+      #3978ed,
+      #7c3aed
+    ) !important;
+}

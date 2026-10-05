@@ -1,0 +1,142 @@
+/* =========================================================
+   FINAL GLASS SURFACES
+   ========================================================= */
+
+.topbar {
+  background: rgba(255, 255, 255, 0.26) !important;
+  border-color: rgba(255, 255, 255, 0.70) !important;
+  backdrop-filter: blur(22px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(160%) !important;
+}
+
+.playground-column {
+  background:
+    linear-gradient(
+      132deg,
+      transparent 0%,
+      transparent 24%,
+      rgba(255, 255, 255, 0.40) 24.2%,
+      rgba(255, 255, 255, 0.12) 42%,
+      transparent 42.2%
+    ),
+    linear-gradient(
+      310deg,
+      rgba(228, 92, 246, 0.30) 0%,
+      rgba(150, 80, 255, 0.16) 24%,
+      transparent 24.2%
+    ),
+    radial-gradient(
+      circle at 60% 48%,
+      rgba(84, 154, 255, 0.22),
+      transparent 38%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.34) 0%,
+      rgba(235, 242, 255, 0.22) 52%,
+      rgba(246, 235, 255, 0.28) 100%
+    ) !important;
+}
+
+/* =========================================================
+   FINAL NDIM / AXIS GUIDE POLISH
+   ========================================================= */
+
+.ndim-row-line,
+.axis-row-line {
+  width: 1px;
+  height: calc(24px + (var(--row-count) - 2) * 8px);
+  background: linear-gradient(180deg, #348eff, #8d35ef) !important;
+}
+
+.ndim-row-label,
+.axis-row-guide {
+  color: #7138dc !important;
+}
+
+/* =========================================================
+
+/* =========================================================
+   INSPECTOR — FINAL READABILITY
+   ========================================================= */
+
+.inspector-panel > .column-title {
+  font-size: 18px !important;
+  letter-spacing: 1.5px !important;
+}
+
+.metrics {
+  gap: 10px !important;
+}
+
+.metric {
+  min-height: 56px !important;
+  padding: 14px !important;
+}
+
+.metric span {
+  font-size: 13px !important;
+  font-weight: 900 !important;
+}
+
+.metric strong {
+  font-size: 18px !important;
+  font-weight: 900 !important;
+}
+
+.metric.metric-active strong {
+  font-size: 19px !important;
+}
+
+.selected-cell-title {
+  font-size: 17px !important;
+}
+
+.selected-cell-item span {
+  font-size: 13px !important;
+}
+
+.selected-cell-item strong {
+  font-size: 18px !important;
+}
+
+/* =========================================================
+   VISUAL EXPLANATION — RESTORE FULL CARD STRUCTURE
+   ========================================================= */
+
+.visual-explanation {
+  width: min(100%, 620px) !important;
+  margin-top: 26px !important;
+  padding: 15px 18px !important;
+
+  border: 1px solid rgba(79, 70, 229, 0.14) !important;
+  border-left: 3px solid #6540ed !important;
+  border-radius: 10px !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.72),
+      rgba(232, 225, 255, 0.58),
+      rgba(225, 241, 255, 0.62)
+    ) !important;
+
+  box-shadow:
+    0 10px 28px rgba(87, 75, 180, 0.11) !important;
+
+  box-sizing: border-box !important;
+}
+
+.visual-explanation-title {
+  margin-bottom: 7px !important;
+  color: #5a27cf !important;
+  font-size: 11px !important;
+  font-weight: 900 !important;
+  letter-spacing: 1.5px !important;
+}
+
+.visual-explanation-text {
+  color: #425b91 !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+}
