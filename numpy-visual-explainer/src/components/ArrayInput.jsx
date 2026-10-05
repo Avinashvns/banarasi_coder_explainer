@@ -1,13 +1,12 @@
 function ArrayInput({ value, onChange, onApply, error }) {
   return (
-    <section className="array-input-panel">
-
+    <div className="array-input-wrapper">
       <textarea
         className="array-input"
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        placeholder="[[1, 2, 3], [4, 5, 6]]"
-        spellCheck="false"
+        spellCheck={false}
+        aria-label="Array input"
       />
 
       {error && (
@@ -17,13 +16,13 @@ function ArrayInput({ value, onChange, onApply, error }) {
       )}
 
       <button
+        type="button"
         className="apply-array-button"
         onClick={onApply}
       >
         APPLY ARRAY
       </button>
-
-    </section>
+    </div>
   );
 }
 
