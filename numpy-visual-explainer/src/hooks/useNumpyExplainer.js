@@ -3,9 +3,18 @@ import { useState } from "react";
 import numpyModules from "../data/numpyCurriculum";
 import moduleContent from "../data/moduleContent";
 import { getArrayMetrics } from "../core/arrayEngine";
+
 import { buildDynamicCode } from "../features/numpyCode";
 import conceptData from "../features/conceptData";
 import { parseAndValidateArray } from "../features/arrayValidation";
+import { get3DArrayMetrics, is3DArray } from "../features/array3D";
+
+import {
+  generateArray,
+  buildArrayCreationCode,
+  DEFAULT_CREATION_FUNCTION,
+  DEFAULT_CREATION_PARAMS,
+} from "../features/arrayCreation";
 
 const DEFAULT_ARRAY = [
   [1, 2, 3],
@@ -24,14 +33,33 @@ export default function useNumpyExplainer() {
   const [activeModule, setActiveModule] = useState(0);
   const [selectedCell, setSelectedCell] = useState(null);
   const [visualMode, setVisualMode] = useState("shape");
+
   const [array, setArray] = useState(DEFAULT_ARRAY);
   const [arrayInput, setArrayInput] = useState(DEFAULT_ARRAY_INPUT);
   const [arrayError, setArrayError] = useState("");
 
+  const [creationFunction, setCreationFunction] = useState(
+    DEFAULT_CREATION_FUNCTION
+  );
+
+  const [creationParams, setCreationParams] = useState(
+    DEFAULT_CREATION_PARAMS
+  );
+
+  const [creationError, setCreationError] = useState("");
+
   const currentModule = numpyModules[activeModule];
   const currentContent = moduleContent[currentModule.name];
-  const metrics = getArrayMetrics(array);
-  const dynamicCode = buildDynamicCode(currentModule.name, array);
+
+  const metrics = is3DArray(array)
+    ? get3DArrayMetrics(array)
+    : getArrayMetrics(array);
+
+  const dynamicCode =
+    currentModule.name === "Array Creation"
+      ? buildArrayCreationCode(creationFunction, creationParams)
+      : buildDynamicCode(currentModule.name, array);
+
   const activeConcept =
     conceptData[visualMode] ?? conceptData.shape;
 
@@ -40,6 +68,8 @@ export default function useNumpyExplainer() {
 
     setActiveModule(index);
     setSelectedCell(null);
+    setArrayError("");
+    setCreationError("");
     setVisualMode(getModuleVisualMode(module.name));
   };
 
@@ -65,6 +95,52 @@ export default function useNumpyExplainer() {
     }
   };
 
+  const handleCreationFunctionChange = (functionName) => {
+    setCreationFunction(functionName);
+    setCreationError("");
+    setSelectedCell(null);
+  };
+
+  const handleCreationParamChange = (name, value) => {
+    setCreationParams((previous) => ({
+      ...previous,
+      [name]: value,
+    }));
+
+    setCreationError("");
+  };
+
+  const handleSeedToggle = (enabled) => {
+    setCreationParams((previous) => ({
+      ...previous,
+      useSeed: enabled,
+    }));
+
+    setCreationError("");
+  };
+
+  const handleGenerateArray = () => {
+    try {
+      const generatedArray = generateArray(
+        creationFunction,
+        creationParams
+      );
+
+      setArray(generatedArray);
+      setSelectedCell(null);
+      setCreationError("");
+      setArrayError("");
+
+      if (creationFunction === "np.array") {
+        setArrayInput(creationParams.source);
+      }
+    } catch (error) {
+      setCreationError(
+        error.message || "Unable to generate array."
+      );
+    }
+  };
+
   return {
     activeModule,
     currentModule,
@@ -77,10 +153,20 @@ export default function useNumpyExplainer() {
     metrics,
     dynamicCode,
     activeConcept,
+
+    creationFunction,
+    creationParams,
+    creationError,
+
     setArrayInput,
     handleModuleChange,
     handleConceptClick,
     handleCellClick,
     handleApplyArray,
+
+    handleCreationFunctionChange,
+    handleCreationParamChange,
+    handleGenerateArray,
+    handleSeedToggle,
   };
 }

@@ -1,16 +1,34 @@
-# React + Vite
+# NumPy Visual Explainer — Modular + Array Creation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This package merges the existing modular React structure with the Array Creation playground.
 
-Currently, two official plugins are available:
+## Keep existing project files
+Do NOT delete your existing `src/data/`, `src/core/`, or `src/index.css`.
+Do NOT delete `ArrayInputPanel.jsx` or `ArrayInput.jsx`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Required index.css import
+Add this line to `src/index.css`:
 
-## React Compiler
+```css
+@import "./styles/array-creation.css";
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Array Creation functions
+- np.array()
+- np.zeros()
+- np.ones()
+- np.full()
+- np.empty()
+- np.arange()
+- np.linspace()
+- np.eye()
+- np.identity()
+- np.diag()
+- np.random.random()
+- np.random.rand()
+- np.random.randn()
+- np.random.randint()
+- np.random.uniform()
+- np.random.normal()
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Current visual generation supports 1D and 2D arrays.

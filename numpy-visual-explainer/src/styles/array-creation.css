@@ -1,0 +1,81 @@
+/* =========================================================
+   ARRAY CREATION PLAYGROUND
+   ========================================================= */
+
+.array-creation-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.creation-function-field,
+.creation-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.creation-field > span {
+  color: #6577a5;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+}
+
+.creation-input {
+  width: 100%;
+  min-height: 38px;
+  box-sizing: border-box;
+  padding: 9px 11px;
+  border: 1px solid rgba(100, 137, 222, 0.22);
+  border-radius: 9px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.78);
+  color: #263b70;
+  font: 700 13px/1.3 "JetBrains Mono", "Fira Code", Consolas, monospace;
+  box-shadow: inset 0 1px 2px rgba(70, 86, 160, 0.04);
+}
+
+.creation-input:focus {
+  border-color: rgba(101, 57, 238, 0.48);
+  box-shadow: 0 0 0 3px rgba(101, 57, 238, 0.08);
+}
+
+.creation-select {
+  cursor: pointer;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.creation-textarea {
+  min-height: 68px;
+  resize: vertical;
+}
+
+.creation-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.creation-fields .creation-field:first-child:last-child {
+  grid-column: 1 / -1;
+}
+
+.creation-fields .creation-field:nth-child(3):last-child {
+  grid-column: 1 / -1;
+}
+
+.creation-generate-button {
+  margin-top: 2px;
+}
+
+@media (max-width: 900px) {
+  .creation-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .creation-fields .creation-field:nth-child(3):last-child,
+  .creation-fields .creation-field:first-child:last-child {
+    grid-column: auto;
+  }
+}

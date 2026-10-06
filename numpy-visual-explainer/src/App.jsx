@@ -6,8 +6,18 @@ import useNumpyExplainer from "./hooks/useNumpyExplainer";
 
 import Header from "./components/Header";
 import InputColumn from "./components/InputColumn";
+import ArrayCreationPanel from "./components/ArrayCreationPanel";
 import ArrayPlayground from "./components/ArrayPlayground";
 import ArrayInspector from "./components/ArrayInspector";
+
+function CreationCodePanel({ code }) {
+  return (
+    <section className="code-panel input-code-panel">
+      <div className="column-title">NUMPY CODE</div>
+      <pre>{code}</pre>
+    </section>
+  );
+}
 
 function App() {
   const {
@@ -20,12 +30,25 @@ function App() {
     metrics,
     dynamicCode,
     activeConcept,
+
+    creationFunction,
+    creationParams,
+    creationError,
+
     setArrayInput,
     handleModuleChange,
     handleConceptClick,
     handleCellClick,
     handleApplyArray,
+
+    handleCreationFunctionChange,
+    handleCreationParamChange,
+    handleSeedToggle,
+    handleGenerateArray,
   } = useNumpyExplainer();
+
+  const isArrayCreation =
+    numpyModules[activeModule]?.name === "Array Creation";
 
   return (
     <div className="app">
@@ -36,13 +59,31 @@ function App() {
       />
 
       <main className="main-grid">
-        <InputColumn
-          arrayInput={arrayInput}
-          onArrayInputChange={setArrayInput}
-          onApplyArray={handleApplyArray}
-          arrayError={arrayError}
-          code={dynamicCode}
-        />
+        <section className="input-column">
+          {isArrayCreation ? (
+            <>
+              <ArrayCreationPanel
+                functionName={creationFunction}
+                params={creationParams}
+                error={creationError}
+                onFunctionChange={handleCreationFunctionChange}
+                onParamChange={handleCreationParamChange}
+                onSeedToggle={handleSeedToggle}
+                onGenerate={handleGenerateArray}
+              />
+
+              <CreationCodePanel code={dynamicCode} />
+            </>
+          ) : (
+            <InputColumn
+              arrayInput={arrayInput}
+              onArrayInputChange={setArrayInput}
+              onApplyArray={handleApplyArray}
+              arrayError={arrayError}
+              code={dynamicCode}
+            />
+          )}
+        </section>
 
         <ArrayPlayground
           array={array}

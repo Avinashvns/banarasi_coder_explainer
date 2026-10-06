@@ -184,21 +184,21 @@ function ArrayGrid({
 
       {(visualMode === "row-selection" ||
         visualMode === "column-selection") && (
-        <div
-          className="selection-guide"
-          style={{
-            gridTemplateColumns: gridColumns,
-          }}
-        >
-          <div />
+          <div
+            className="selection-guide"
+            style={{
+              gridTemplateColumns: gridColumns,
+            }}
+          >
+            <div />
 
-          <div className="selection-guide-content">
-            {visualMode === "row-selection"
-              ? "CLICK A ROW"
-              : "CLICK A COLUMN"}
+            <div className="selection-guide-content">
+              {visualMode === "row-selection"
+                ? "CLICK A ROW"
+                : "CLICK A COLUMN"}
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
       <div
         className="array-column-labels"
@@ -211,16 +211,14 @@ function ArrayGrid({
         {rows[0].map((_, colIndex) => (
           <div
             key={`column-${colIndex}`}
-            className={`axis-label column-label ${
-              visualMode === "axis"
+            className={`axis-label column-label ${visualMode === "axis"
                 ? "axis-index-highlight"
                 : ""
-            } ${
-              visualMode === "column-selection" &&
-              selectedCell?.col === colIndex
+              } ${visualMode === "column-selection" &&
+                selectedCell?.col === colIndex
                 ? "selection-index-highlight"
                 : ""
-            }`}
+              }`}
             onClick={() =>
               handleColumnLabelClick(colIndex)
             }
@@ -293,16 +291,14 @@ function ArrayGrid({
             }}
           >
             <div
-              className={`axis-label row-label ${
-                visualMode === "axis"
+              className={`axis-label row-label ${visualMode === "axis"
                   ? "axis-index-highlight"
                   : ""
-              } ${
-                visualMode === "row-selection" &&
-                selectedCell?.row === rowIndex
+                } ${visualMode === "row-selection" &&
+                  selectedCell?.row === rowIndex
                   ? "selection-index-highlight"
                   : ""
-              }`}
+                }`}
               onClick={() =>
                 handleRowLabelClick(rowIndex)
               }
@@ -345,9 +341,8 @@ function ArrayGrid({
                 <button
                   key={`${rowIndex}-${colIndex}`}
                   type="button"
-                  className={`array-cell ${
-                    isSelected ? "selected" : ""
-                  } ${visualClass}`}
+                  className={`array-cell ${isSelected ? "selected" : ""
+                    } ${visualClass}`}
                   onClick={() =>
                     onCellClick({
                       row: rowIndex,
@@ -357,7 +352,9 @@ function ArrayGrid({
                   }
                 >
                   <span className="cell-value">
-                    {String(value)}
+                    {typeof value === "number" && !Number.isInteger(value)
+                      ? value.toFixed(2)
+                      : String(value)}
                   </span>
 
                   {visualMode === "indexing" && (
