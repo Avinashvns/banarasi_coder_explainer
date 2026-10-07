@@ -8,18 +8,11 @@ import {
 
 function ChartPreview({ data, style }) {
   const [zoom, setZoom] = useState(0.8);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const [isFullscreen, setIsFullscreen] =
-    useState(false);
-
-  const [hoveredIndex, setHoveredIndex] =
-    useState(null);
-
-  const [hoveredXIndex, setHoveredXIndex] =
-    useState(null);
-
-  const [hoveredYValue, setHoveredYValue] =
-    useState(null);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [hoveredXIndex, setHoveredXIndex] = useState(null);
+  const [hoveredYValue, setHoveredYValue] = useState(null);
 
   const width = 900;
   const height = 500;
@@ -31,6 +24,114 @@ function ChartPreview({ data, style }) {
     left: 50,
   };
 
+  /* ========================================
+     FORMAT STRING
+  ======================================== */
+
+  const parseFormatString = (formatString) => {
+    if (!formatString?.trim()) {
+      return {};
+    }
+
+    const format = formatString.trim();
+
+    const colorMap = {
+      b: "#3b82f6",
+      g: "#22c55e",
+      r: "#ef4444",
+      c: "#06b6d4",
+      m: "#ec4899",
+      y: "#eab308",
+      k: "#111827",
+      w: "#ffffff",
+    };
+
+    const result = {
+      color: null,
+      lineStyle: null,
+      marker: null,
+    };
+
+    /* COLOR */
+
+    for (const code of Object.keys(colorMap)) {
+      if (format.includes(code)) {
+        result.color = colorMap[code];
+        break;
+      }
+    }
+
+    /* LINE STYLE */
+
+    if (format.includes("--")) {
+      result.lineStyle = "--";
+    } else if (format.includes("-.")) {
+      result.lineStyle = "-.";
+    } else if (format.includes(":")) {
+      result.lineStyle = ":";
+    } else if (format.includes("-")) {
+      result.lineStyle = "-";
+    }
+
+    /* MARKER */
+
+    const markers = [
+      ".",
+      ",",
+      "o",
+      "v",
+      "^",
+      "<",
+      ">",
+      "1",
+      "2",
+      "3",
+      "4",
+      "s",
+      "p",
+      "*",
+      "h",
+      "H",
+      "+",
+      "x",
+      "X",
+      "D",
+      "d",
+    ];
+
+    for (const marker of markers) {
+      if (format.includes(marker)) {
+        result.marker = marker;
+        break;
+      }
+    }
+
+    return result;
+  };
+
+  const formatStyle = parseFormatString(
+    style.formatString
+  );
+
+  const hasFormat =
+    Boolean(style.formatString?.trim());
+
+  const activeColor = hasFormat
+    ? formatStyle.color || style.color
+    : style.color;
+
+  const activeLineStyle = hasFormat
+    ? formatStyle.lineStyle || style.lineStyle
+    : style.lineStyle;
+
+  const activeMarker = hasFormat
+    ? formatStyle.marker
+    : style.marker;
+
+  /* ========================================
+     CHART DIMENSIONS
+  ======================================== */
+
   const chartWidth =
     width -
     padding.left -
@@ -41,9 +142,8 @@ function ChartPreview({ data, style }) {
     padding.top -
     padding.bottom;
 
-
   /* ========================================
-     NUMERIC X CHECK
+     NUMERIC X
   ======================================== */
 
   const numericXValues = useMemo(() => {
@@ -54,7 +154,6 @@ function ChartPreview({ data, style }) {
     data.x.length > 0 &&
     numericXValues.every(Number.isFinite);
 
-
   /* ========================================
      Y AXIS
   ======================================== */
@@ -62,7 +161,6 @@ function ChartPreview({ data, style }) {
   const yAxis = useMemo(() => {
     return getNiceAxis(data.y, 7);
   }, [data.y]);
-
 
   /* ========================================
      X AXIS
@@ -82,7 +180,6 @@ function ChartPreview({ data, style }) {
     numericXValues,
   ]);
 
-
   /* ========================================
      CATEGORICAL X TICKS
   ======================================== */
@@ -101,7 +198,6 @@ function ChartPreview({ data, style }) {
     isNumericX,
   ]);
 
-
   /* ========================================
      Y SCALE
   ======================================== */
@@ -112,7 +208,6 @@ function ChartPreview({ data, style }) {
   const yRange =
     yMax - yMin || 1;
 
-
   /* ========================================
      X SCALE
   ======================================== */
@@ -122,7 +217,6 @@ function ChartPreview({ data, style }) {
 
   const xRange =
     xMax - xMin || 1;
-
 
   /* ========================================
      GET X POSITION
@@ -136,11 +230,7 @@ function ChartPreview({ data, style }) {
       );
     }
 
-    /*
-     * Numeric X:
-     * use actual X values so uneven
-     * numbers get correct spacing.
-     */
+    /* Numeric X */
 
     if (isNumericX) {
       const value =
@@ -148,15 +238,13 @@ function ChartPreview({ data, style }) {
 
       return (
         padding.left +
-        ((value - xMin) / xRange) *
-        chartWidth
+        ((value - xMin) /
+          xRange) *
+          chartWidth
       );
     }
 
-    /*
-     * Categorical X:
-     * distribute points evenly.
-     */
+    /* Categorical X */
 
     if (data.x.length === 1) {
       return (
@@ -169,10 +257,9 @@ function ChartPreview({ data, style }) {
       padding.left +
       (index /
         (data.x.length - 1)) *
-      chartWidth
+        chartWidth
     );
   };
-
 
   /* ========================================
      GET Y POSITION
@@ -184,10 +271,9 @@ function ChartPreview({ data, style }) {
       chartHeight -
       ((value - yMin) /
         yRange) *
-      chartHeight
+        chartHeight
     );
   };
-
 
   /* ========================================
      LINE POINTS
@@ -199,7 +285,6 @@ function ChartPreview({ data, style }) {
         `${getX(index)},${getY(value)}`
     )
     .join(" ");
-
 
   /* ========================================
      ZOOM
@@ -227,7 +312,6 @@ function ChartPreview({ data, style }) {
     setZoom(1);
   };
 
-
   /* ========================================
      FULLSCREEN
   ======================================== */
@@ -237,7 +321,6 @@ function ChartPreview({ data, style }) {
       (value) => !value
     );
   };
-
 
   /* ========================================
      BODY SCROLL
@@ -255,7 +338,6 @@ function ChartPreview({ data, style }) {
     };
   }, [isFullscreen]);
 
-
   /* ========================================
      X TICK POSITION
   ======================================== */
@@ -267,10 +349,9 @@ function ChartPreview({ data, style }) {
       padding.left +
       ((value - xMin) /
         xRange) *
-      chartWidth
+        chartWidth
     );
   };
-
 
   /* ========================================
      RENDER
@@ -278,10 +359,11 @@ function ChartPreview({ data, style }) {
 
   return (
     <div
-      className={`chart-preview ${isFullscreen
+      className={`chart-preview ${
+        isFullscreen
           ? "chart-fullscreen"
           : ""
-        }`}
+      }`}
     >
 
       {/* ====================================
@@ -341,7 +423,6 @@ function ChartPreview({ data, style }) {
 
       </div>
 
-
       {/* ====================================
           CHART VIEWPORT
       ==================================== */}
@@ -379,13 +460,15 @@ function ChartPreview({ data, style }) {
                     key={`grid-y-${value}`}
                     x1={padding.left}
                     y1={getY(value)}
-                    x2={width - padding.right}
+                    x2={
+                      width -
+                      padding.right
+                    }
                     y2={getY(value)}
                     className="chart-grid"
                   />
                 )
               )}
-
 
             {/* ==============================
                 X GRID
@@ -397,15 +480,21 @@ function ChartPreview({ data, style }) {
                 (value) => (
                   <line
                     key={`grid-x-${value}`}
-                    x1={getNumericXTickPosition(value)}
+                    x1={getNumericXTickPosition(
+                      value
+                    )}
                     y1={padding.top}
-                    x2={getNumericXTickPosition(value)}
-                    y2={height - padding.bottom}
+                    x2={getNumericXTickPosition(
+                      value
+                    )}
+                    y2={
+                      height -
+                      padding.bottom
+                    }
                     className="chart-grid"
                   />
                 )
               )}
-
 
             {/* ==============================
                 X HOVER GUIDE
@@ -428,7 +517,6 @@ function ChartPreview({ data, style }) {
               />
             )}
 
-
             {/* ==============================
                 Y HOVER GUIDE
             ============================== */}
@@ -450,7 +538,6 @@ function ChartPreview({ data, style }) {
               />
             )}
 
-
             {/* ==============================
                 Y AXIS
             ============================== */}
@@ -465,7 +552,6 @@ function ChartPreview({ data, style }) {
               }
               className="chart-axis"
             />
-
 
             {/* ==============================
                 X AXIS
@@ -488,14 +574,12 @@ function ChartPreview({ data, style }) {
               className="chart-axis"
             />
 
-
             {/* ==============================
                 Y TICK NUMBERS
             ============================== */}
 
             {yAxis.ticks.map(
               (value) => {
-
                 const isActive =
                   hoveredYValue ===
                   value;
@@ -512,10 +596,11 @@ function ChartPreview({ data, style }) {
                       6
                     }
                     textAnchor="end"
-                    className={`chart-tick ${isActive
+                    className={`chart-tick ${
+                      isActive
                         ? "chart-tick-active"
                         : ""
-                      }`}
+                    }`}
                     onMouseEnter={() =>
                       setHoveredYValue(
                         value
@@ -536,7 +621,6 @@ function ChartPreview({ data, style }) {
               }
             )}
 
-
             {/* ==============================
                 NUMERIC X TICKS
             ============================== */}
@@ -544,7 +628,6 @@ function ChartPreview({ data, style }) {
             {isNumericX &&
               xAxis.ticks.map(
                 (value) => {
-
                   const tickX =
                     getNumericXTickPosition(
                       value
@@ -562,15 +645,7 @@ function ChartPreview({ data, style }) {
                       textAnchor="middle"
                       className="chart-tick"
                       onMouseEnter={() => {
-
-                        /*
-                         * Find nearest data
-                         * point for guide.
-                         */
-
-                        let nearestIndex =
-                          0;
-
+                        let nearestIndex = 0;
                         let nearestDistance =
                           Infinity;
 
@@ -579,7 +654,6 @@ function ChartPreview({ data, style }) {
                             xValue,
                             index
                           ) => {
-
                             const distance =
                               Math.abs(
                                 xValue -
@@ -618,7 +692,6 @@ function ChartPreview({ data, style }) {
                 }
               )}
 
-
             {/* ==============================
                 CATEGORICAL X TICKS
             ============================== */}
@@ -629,7 +702,6 @@ function ChartPreview({ data, style }) {
                   value,
                   index,
                 }) => {
-
                   const isActive =
                     hoveredXIndex ===
                     index;
@@ -644,10 +716,11 @@ function ChartPreview({ data, style }) {
                         35
                       }
                       textAnchor="middle"
-                      className={`chart-tick ${isActive
+                      className={`chart-tick ${
+                        isActive
                           ? "chart-tick-active"
                           : ""
-                        }`}
+                      }`}
                       onMouseEnter={() =>
                         setHoveredXIndex(
                           index
@@ -665,7 +738,6 @@ function ChartPreview({ data, style }) {
                 }
               )}
 
-
             {/* ==============================
                 LINE
             ============================== */}
@@ -674,11 +746,22 @@ function ChartPreview({ data, style }) {
               points={points}
               className="chart-line"
               style={{
+                stroke:
+                  activeColor,
                 strokeWidth:
                   style.lineWidth,
+                opacity:
+                  style.alpha,
+                strokeDasharray:
+                  activeLineStyle === "--"
+                    ? "10 7"
+                    : activeLineStyle === ":"
+                    ? "2 6"
+                    : activeLineStyle === "-."
+                    ? "10 6 2 6"
+                    : "none",
               }}
             />
-
 
             {/* ==============================
                 DATA POINTS
@@ -686,7 +769,6 @@ function ChartPreview({ data, style }) {
 
             {data.y.map(
               (value, index) => {
-
                 const isHovered =
                   hoveredIndex ===
                   index;
@@ -696,44 +778,393 @@ function ChartPreview({ data, style }) {
                     key={`point-${index}`}
                   >
 
+                    {/* HOVER GLOW */}
+
                     {isHovered && (
                       <circle
                         cx={getX(index)}
                         cy={getY(value)}
                         r="12"
                         className="point-glow"
+                        style={{
+                          stroke:
+                            activeColor,
+                        }}
                       />
                     )}
 
-                    <circle
-                      cx={getX(index)}
-                      cy={getY(value)}
-                      r={
+                    {/* DYNAMIC MARKER */}
+
+                    {(() => {
+                      const markerSize =
+                        Number(
+                          style.markerSize
+                        ) || 6;
+
+                      const size =
                         isHovered
-                          ? 8
-                          : 6
+                          ? markerSize + 3
+                          : markerSize;
+
+                      const x =
+                        getX(index);
+
+                      const y =
+                        getY(value);
+
+                      const commonProps = {
+                        className: `chart-point ${
+                          isHovered
+                            ? "chart-point-active"
+                            : ""
+                        }`,
+
+                        onMouseEnter:
+                          () =>
+                            setHoveredIndex(
+                              index
+                            ),
+
+                        onMouseLeave:
+                          () =>
+                            setHoveredIndex(
+                              null
+                            ),
+
+                        fill:
+                          style.markerFaceColor ||
+                          "#ffffff",
+
+                        stroke:
+                          style.markerEdgeColor ||
+                          activeColor,
+
+                        strokeWidth: 1.5,
+
+                        opacity:
+                          style.alpha ??
+                          1,
+                      };
+
+                      /* NO MARKER */
+
+                      if (!activeMarker) {
+                        return null;
                       }
-                      className={`chart-point ${isHovered
-                          ? "chart-point-active"
-                          : ""
-                        }`}
-                      onMouseEnter={() =>
-                        setHoveredIndex(
-                          index
-                        )
+
+                      /* CIRCLE */
+
+                      if (
+                        activeMarker ===
+                        "o"
+                      ) {
+                        return (
+                          <circle
+                            cx={x}
+                            cy={y}
+                            r={
+                              size / 2
+                            }
+                            {...commonProps}
+                          />
+                        );
                       }
-                      onMouseLeave={() =>
-                        setHoveredIndex(
-                          null
-                        )
+
+                      /* SQUARE */
+
+                      if (
+                        activeMarker ===
+                        "s"
+                      ) {
+                        return (
+                          <rect
+                            x={
+                              x -
+                              size / 2
+                            }
+                            y={
+                              y -
+                              size / 2
+                            }
+                            width={size}
+                            height={size}
+                            rx="1"
+                            {...commonProps}
+                          />
+                        );
                       }
-                    />
+
+                      /* TRIANGLE */
+
+                      if (
+                        activeMarker ===
+                        "^"
+                      ) {
+                        return (
+                          <polygon
+                            points={`
+                              ${x},${
+                                y -
+                                size / 2
+                              }
+                              ${
+                                x -
+                                size / 2
+                              },${
+                                y +
+                                size / 2
+                              }
+                              ${
+                                x +
+                                size / 2
+                              },${
+                                y +
+                                size / 2
+                              }
+                            `}
+                            {...commonProps}
+                          />
+                        );
+                      }
+
+                      /* DIAMOND */
+
+                      if (
+                        activeMarker ===
+                        "D"
+                      ) {
+                        return (
+                          <polygon
+                            points={`
+                              ${x},${
+                                y -
+                                size / 2
+                              }
+                              ${
+                                x +
+                                size / 2
+                              },${y}
+                              ${x},${
+                                y +
+                                size / 2
+                              }
+                              ${
+                                x -
+                                size / 2
+                              },${y}
+                            `}
+                            {...commonProps}
+                          />
+                        );
+                      }
+
+                      /* PLUS */
+
+                      if (
+                        activeMarker ===
+                        "+"
+                      ) {
+                        const half =
+                          size / 2;
+
+                        return (
+                          <g
+                            className={
+                              commonProps.className
+                            }
+                            opacity={
+                              style.alpha ??
+                              1
+                            }
+                            stroke={
+                              style.markerEdgeColor ||
+                              activeColor
+                            }
+                            strokeWidth="2"
+                            onMouseEnter={
+                              commonProps.onMouseEnter
+                            }
+                            onMouseLeave={
+                              commonProps.onMouseLeave
+                            }
+                          >
+                            <line
+                              x1={
+                                x -
+                                half
+                              }
+                              y1={y}
+                              x2={
+                                x +
+                                half
+                              }
+                              y2={y}
+                            />
+
+                            <line
+                              x1={x}
+                              y1={
+                                y -
+                                half
+                              }
+                              x2={x}
+                              y2={
+                                y +
+                                half
+                              }
+                            />
+                          </g>
+                        );
+                      }
+
+                      /* STAR */
+
+                      if (
+                        activeMarker ===
+                        "*"
+                      ) {
+                        const outer =
+                          size / 2;
+
+                        const inner =
+                          outer *
+                          0.45;
+
+                        const starPoints =
+                          [];
+
+                        for (
+                          let i = 0;
+                          i < 10;
+                          i++
+                        ) {
+                          const angle =
+                            -Math.PI / 2 +
+                            (i *
+                              Math.PI) /
+                              5;
+
+                          const radius =
+                            i % 2 === 0
+                              ? outer
+                              : inner;
+
+                          starPoints.push(
+                            `${
+                              x +
+                              Math.cos(
+                                angle
+                              ) *
+                                radius
+                            },${
+                              y +
+                              Math.sin(
+                                angle
+                              ) *
+                                radius
+                            }`
+                          );
+                        }
+
+                        return (
+                          <polygon
+                            points={starPoints.join(
+                              " "
+                            )}
+                            {...commonProps}
+                          />
+                        );
+                      }
+
+                      /* X MARKER */
+
+                      if (
+                        activeMarker ===
+                          "x" ||
+                        activeMarker ===
+                          "X"
+                      ) {
+                        const half =
+                          size / 2;
+
+                        return (
+                          <g
+                            className={
+                              commonProps.className
+                            }
+                            opacity={
+                              style.alpha ??
+                              1
+                            }
+                            stroke={
+                              style.markerEdgeColor ||
+                              activeColor
+                            }
+                            strokeWidth="2"
+                            onMouseEnter={
+                              commonProps.onMouseEnter
+                            }
+                            onMouseLeave={
+                              commonProps.onMouseLeave
+                            }
+                          >
+                            <line
+                              x1={
+                                x -
+                                half
+                              }
+                              y1={
+                                y -
+                                half
+                              }
+                              x2={
+                                x +
+                                half
+                              }
+                              y2={
+                                y +
+                                half
+                              }
+                            />
+
+                            <line
+                              x1={
+                                x +
+                                half
+                              }
+                              y1={
+                                y -
+                                half
+                              }
+                              x2={
+                                x -
+                                half
+                              }
+                              y2={
+                                y +
+                                half
+                              }
+                            />
+                          </g>
+                        );
+                      }
+
+                      /* DEFAULT */
+
+                      return (
+                        <circle
+                          cx={x}
+                          cy={y}
+                          r={size / 2}
+                          {...commonProps}
+                        />
+                      );
+                    })()}
 
                   </g>
                 );
               }
             )}
-
 
             {/* ==============================
                 DYNAMIC TOOLTIP
@@ -741,7 +1172,6 @@ function ChartPreview({ data, style }) {
 
             {hoveredIndex !== null &&
               (() => {
-
                 const pointX =
                   getX(
                     hoveredIndex
@@ -750,7 +1180,7 @@ function ChartPreview({ data, style }) {
                 const pointY =
                   getY(
                     data.y[
-                    hoveredIndex
+                      hoveredIndex
                     ]
                   );
 
@@ -779,9 +1209,9 @@ function ChartPreview({ data, style }) {
 
                 if (
                   tooltipX +
-                  tooltipWidth >
+                    tooltipWidth >
                   width -
-                  padding.right
+                    padding.right
                 ) {
                   tooltipX =
                     width -
@@ -805,7 +1235,6 @@ function ChartPreview({ data, style }) {
                       ${tooltipY}
                     )`}
                   >
-
                     <rect
                       width={
                         tooltipWidth
@@ -819,7 +1248,8 @@ function ChartPreview({ data, style }) {
 
                     <text
                       x={
-                        tooltipWidth / 2
+                        tooltipWidth /
+                        2
                       }
                       y="23"
                       textAnchor="middle"
@@ -828,14 +1258,15 @@ function ChartPreview({ data, style }) {
                       X:{" "}
                       {
                         data.x[
-                        hoveredIndex
+                          hoveredIndex
                         ]
                       }
                     </text>
 
                     <text
                       x={
-                        tooltipWidth / 2
+                        tooltipWidth /
+                        2
                       }
                       y="43"
                       textAnchor="middle"
@@ -844,19 +1275,16 @@ function ChartPreview({ data, style }) {
                       Y:{" "}
                       {
                         data.y[
-                        hoveredIndex
+                          hoveredIndex
                         ]
                       }
                     </text>
-
                   </g>
                 );
               })()}
 
           </g>
-
         </svg>
-
 
         {/* ==================================
             GLASS AXIS LABELS
@@ -871,7 +1299,6 @@ function ChartPreview({ data, style }) {
         </div>
 
       </div>
-
     </div>
   );
 }

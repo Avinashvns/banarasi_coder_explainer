@@ -10,6 +10,7 @@ import ChartPreview from "./chart/ChartPreview";
 import CodePreview from "./code/CodePreview";
 import IntroductionVisual from "./introduction/IntroductionVisual";
 import BasicLinePlotControls from "./controls/BasicLinePlotControls";
+import PlotStyling from "./controls/plotStyling/PlotStyling";
 
 import {
   DEFAULT_DATA,
@@ -22,16 +23,52 @@ import "./settings/PlotSettings.css";
 import "./chart/ChartPreview.css";
 import "./code/CodePreview.css";
 import "./introduction/Introduction.css";
+import "./controls/plotStyling/PlotStyling.css";
+
 
 function Playground({ selectedModule }) {
-  const [data, setData] = useState(DEFAULT_DATA);
-  const [settings, setSettings] =
+
+  /* ========================================
+     BASIC LINE PLOT STATE
+  ======================================== */
+
+  const [basicData, setBasicData] =
+    useState(DEFAULT_DATA);
+
+  const [basicSettings, setBasicSettings] =
     useState(DEFAULT_STYLE);
+
+
+  /* ========================================
+     PLOT STYLING STATE
+     Completely independent from Basic Line Plot
+  ======================================== */
+
+  const [stylingData, setStylingData] =
+    useState(DEFAULT_DATA);
+
+  const [stylingSettings, setStylingSettings] =
+    useState(DEFAULT_STYLE);
+
+
+  /* ========================================
+     INTRODUCTION STATE
+  ======================================== */
 
   const [selectedTopic, setSelectedTopic] =
     useState("matplotlib");
 
+
+  /* ========================================
+     CONTROLS
+  ======================================== */
+
   const renderControls = () => {
+
+    /* ----------------------------------------
+       INTRODUCTION
+    ---------------------------------------- */
+
     if (selectedModule === "Introduction") {
       return (
         <IntroductionControls
@@ -41,48 +78,113 @@ function Playground({ selectedModule }) {
       );
     }
 
+
+    /* ----------------------------------------
+       BASIC LINE PLOT
+    ---------------------------------------- */
+
     if (selectedModule === "Basic Line Plot") {
       return (
         <BasicLinePlotControls
-          data={data}
-          setData={setData}
-          settings={settings}
-          setSettings={setSettings}
+          data={basicData}
+          setData={setBasicData}
+          settings={basicSettings}
+          setSettings={setBasicSettings}
         />
       );
     }
 
+
+    /* ----------------------------------------
+       PLOT STYLING
+    ---------------------------------------- */
+
+    if (selectedModule === "Plot Styling") {
+      return (
+        <PlotStyling
+          data={stylingData}
+          setData={setStylingData}
+          settings={stylingSettings}
+          setSettings={setStylingSettings}
+        />
+      );
+    }
+
+
+    /* ----------------------------------------
+       OTHER MODULES
+    ---------------------------------------- */
+
     return (
       <>
         <DataControls
-          data={data}
-          setData={setData}
+          data={basicData}
+          setData={setBasicData}
         />
 
         <PlotSettings
-          settings={settings}
-          setSettings={setSettings}
+          settings={basicSettings}
+          setSettings={setBasicSettings}
         />
       </>
     );
   };
 
+
+  /* ========================================
+     ACTIVE PLAYGROUND STATE
+  ======================================== */
+
+  const activeData =
+    selectedModule === "Plot Styling"
+      ? stylingData
+      : basicData;
+
+  const activeSettings =
+    selectedModule === "Plot Styling"
+      ? stylingSettings
+      : basicSettings;
+
+  const activeSetData =
+    selectedModule === "Plot Styling"
+      ? setStylingData
+      : setBasicData;
+
+  const activeSetSettings =
+    selectedModule === "Plot Styling"
+      ? setStylingSettings
+      : setBasicSettings;
+
+
+  /* ========================================
+     UI
+  ======================================== */
+
   return (
     <div className="playground">
 
-      {/* TOP CONTROLS */}
+      {/* ====================================
+          TOP CONTROLS
+      ==================================== */}
+
       <div className="playground-controls">
         {renderControls()}
       </div>
 
-      {/* INTRODUCTION VISUAL */}
+
+      {/* ====================================
+          INTRODUCTION VISUAL
+      ==================================== */}
+
       {selectedModule === "Introduction" &&
-        !["matplotlib", "why", "pyplot", "import"].includes(
-          selectedTopic
-        ) && (
+        ![
+          "matplotlib",
+          "why",
+          "pyplot",
+          "import",
+        ].includes(selectedTopic) && (
+
           <div className="introduction-learning-row">
-
-
 
             <IntroductionContent
               selectedTopic={selectedTopic}
@@ -95,29 +197,39 @@ function Playground({ selectedModule }) {
           </div>
         )}
 
+
       {selectedModule === "Introduction" &&
-        ["matplotlib", "why", "pyplot", "import"].includes(
-          selectedTopic
-        ) && (
+        [
+          "matplotlib",
+          "why",
+          "pyplot",
+          "import",
+        ].includes(selectedTopic) && (
+
           <IntroductionContent
             selectedTopic={selectedTopic}
           />
         )}
 
-      {/* CHART + CODE */}
+
+      {/* ====================================
+          CHART + CODE
+      ==================================== */}
+
       {selectedModule !== "Introduction" && (
+
         <div className="playground-visual">
 
           <ChartPreview
-            data={data}
-            style={settings}
+            data={activeData}
+            style={activeSettings}
           />
 
           <CodePreview
-            data={data}
-            style={settings}
-            setData={setData}
-            setSettings={setSettings}
+            data={activeData}
+            style={activeSettings}
+            setData={activeSetData}
+            setSettings={activeSetSettings}
           />
 
         </div>

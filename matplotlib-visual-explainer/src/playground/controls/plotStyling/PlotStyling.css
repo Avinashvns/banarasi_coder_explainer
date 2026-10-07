@@ -1,0 +1,427 @@
+/* =========================================
+   PLOT STYLING CONTROLS
+========================================= */
+
+.plot-styling-controls {
+  width: 100%;
+
+  display: grid;
+
+  /*
+    DATA
+    MATPLOTLIB SETTINGS
+    LINE
+    MARKER
+    APPEARANCE
+  */
+  grid-template-columns:
+    1.05fr
+    1.45fr
+    1.15fr
+    1.35fr
+    1.15fr;
+
+  gap: 10px;
+
+  padding: 7px 8px;
+
+  box-sizing: border-box;
+
+  background: var(--gradient-main);
+
+  border: 1px solid rgba(168, 85, 247, 0.42);
+
+  border-radius: 10px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 0 22px rgba(124, 58, 237, 0.10),
+    0 6px 25px rgba(0, 0, 0, 0.20);
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   SECTION
+========================================= */
+
+.plot-styling-controls .control-section {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 5px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   SECTION DIVIDER
+========================================= */
+
+.plot-styling-controls
+.control-section
++ .control-section {
+  border-left: 1px solid rgba(148, 163, 184, 0.16);
+
+  padding-left: 10px;
+}
+
+
+/* =========================================
+   SECTION TITLE
+========================================= */
+
+.plot-styling-controls .control-section-title {
+  color: #fbbf24;
+
+  font-size: var(--font-ui-label);
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  line-height: 1;
+  margin-bottom: 3px;
+
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  text-shadow:
+    0 0 10px rgba(251, 191, 36, 0.22);
+}
+
+/* =========================================
+   CONTROL ROW
+========================================= */
+
+.plot-styling-controls .control-row {
+  width: 100%;
+
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.plot-styling-controls .control-row label {
+  width: 52px;
+
+  min-width: 52px;
+
+  flex: 0 0 52px;
+
+  color: var(--primary-light);
+
+  font-size: var(--font-ui-label);
+
+  font-weight: 700;
+
+  letter-spacing: 0.02em;
+
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   LONG LABELS
+========================================= */
+
+.plot-styling-controls
+.styling-data-section
+.control-row label {
+  width: 48px;
+
+  min-width: 48px;
+
+  flex-basis: 48px;
+}
+
+.plot-styling-controls
+.styling-settings-section
+.control-row label {
+  width: 58px;
+
+  min-width: 58px;
+
+  flex-basis: 58px;
+}
+
+.plot-styling-controls
+.styling-marker-section
+.control-row label {
+  width: 58px;
+
+  min-width: 58px;
+
+  flex-basis: 58px;
+}
+
+
+/* =========================================
+   TEXT / NUMBER / SELECT
+========================================= */
+
+.plot-styling-controls input[type="text"],
+.plot-styling-controls input[type="number"],
+
+.plot-styling-controls select {
+  flex: 1 1 auto;
+
+  min-width: 0;
+
+  width: 100%;
+
+  height: 30px;
+
+  padding: 5px 8px;
+
+  box-sizing: border-box;
+
+  background: var(--gradient-control-input);
+
+  border: 1px solid rgba(71, 85, 115, 0.75);
+
+  border-radius: 6px;
+
+  color: var(--text);
+
+  font-size: var(--font-ui-input);
+
+  font-weight: 500;
+
+  outline: none;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================
+   SELECT
+========================================= */
+
+.plot-styling-controls select {
+  cursor: pointer;
+}
+
+
+/* =========================================
+   NUMBER INPUT
+========================================= */
+
+.plot-styling-controls input[type="number"] {
+   width: 58px;
+  min-width: 58px;
+  max-width: 58px;
+  flex: 0 0 58px;
+  padding-left: 7px;
+  padding-right: 7px;
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   COLOR INPUT
+========================================= */
+
+.plot-styling-controls input[type="color"] {
+  width: 30px;
+
+  min-width: 30px;
+
+  height: 30px;
+
+  flex: 0 0 30px;
+
+  padding: 2px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(71, 85, 115, 0.75);
+
+  border-radius: 6px;
+
+  background: var(--gradient-control-input);
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   COLOR VALUE
+========================================= */
+
+.plot-styling-controls .color-value {
+  min-width: 0;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  color: var(--text-secondary);
+
+  font-size: var(--font-ui-small);
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   PAIRED CONTROLS
+========================================= */
+
+.plot-styling-controls .control-row-pair {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto;
+
+  gap: 6px;
+
+  min-width: 0;
+}
+
+.plot-styling-controls
+.control-row-pair
+.control-row {
+  min-width: 0;
+}
+
+
+/* Paired labels should remain compact */
+
+.plot-styling-controls
+.control-row-pair
+.control-row
+label {
+  width: auto;
+
+  min-width: 0;
+
+  flex: 0 0 auto;
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.plot-styling-controls input:hover,
+.plot-styling-controls select:hover {
+  border-color: rgba(192, 132, 252, 0.48);
+
+  background: rgba(34, 48, 82, 0.95);
+}
+
+
+/* =========================================
+   FOCUS
+========================================= */
+
+.plot-styling-controls input:focus,
+.plot-styling-controls select:focus {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 2px var(--primary-soft),
+    0 0 10px rgba(168, 85, 247, 0.08);
+}
+
+
+/* =========================================
+   LINE — COMPACT
+========================================= */
+
+.plot-styling-controls .styling-line-section {
+  gap: 5px;
+}
+
+
+/* =========================================
+   MARKER — COMPACT
+========================================= */
+
+.plot-styling-controls .styling-marker-section {
+  gap: 5px;
+}
+
+
+/* =========================================
+   APPEARANCE — COMPACT
+========================================= */
+
+.plot-styling-controls .styling-appearance-section {
+  gap: 5px;
+}
+
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .plot-styling-controls {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .plot-styling-controls
+  .control-section:nth-child(odd) {
+    border-left: none;
+  }
+}
+
+
+/* =========================================
+   RESPONSIVE — MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .plot-styling-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .plot-styling-controls
+  .control-section {
+    border-left: none;
+
+    border-top:
+      1px solid
+      rgba(148, 163, 184, 0.16);
+
+    padding-left: 0;
+
+    padding-top: 8px;
+  }
+
+  .plot-styling-controls
+  .control-section:first-child {
+    border-top: none;
+
+    padding-top: 0;
+  }
+}
+
+
+
