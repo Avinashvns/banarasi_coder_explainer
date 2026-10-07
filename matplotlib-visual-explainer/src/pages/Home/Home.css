@@ -1,14 +1,17 @@
+/* =========================================
+   HOME
+========================================= */
+
 .home {
-  padding: 12px;
-}
+  width: 100%;
 
-.home-heading h1 {
-  margin: 0 0 8px;
-  font-size: 28px;
-  color: #0745d4;
-}
+  min-height:
+    calc(100vh - 64px);
 
-.home-heading p {
-  margin: 0 0 20px;
-  color: #64748b;
+  padding: 14px;
+
+  box-sizing: border-box;
+
+  background:
+    var(--gradient-home-glow);
 }

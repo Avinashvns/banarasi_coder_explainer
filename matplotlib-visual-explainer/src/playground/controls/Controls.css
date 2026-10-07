@@ -17,29 +17,29 @@
   box-sizing: border-box;
 
   background:
-    linear-gradient(
-      135deg,
-      rgba(17, 24, 43, 0.95),
-      rgba(10, 15, 30, 0.98)
-    );
+    var(--gradient-main);
 
   border: 1px solid
-    rgba(168, 85, 247, 0.28);
+    rgba(168, 85, 247, 0.42);
 
-  border-radius: 9px;
+  border-radius: 10px;
 
   box-shadow:
     inset 0 1px 0
-    rgba(255, 255, 255, 0.03),
-    0 5px 18px
-    rgba(0, 0, 0, 0.14);
+      rgba(255, 255, 255, 0.04),
+
+    0 0 22px
+      rgba(124, 58, 237, 0.10),
+
+    0 6px 25px
+      rgba(0, 0, 0, 0.20);
 
   overflow: hidden;
 }
 
 
 /* =========================================
-   SECTION
+   BASIC — SECTION
 ========================================= */
 
 .basic-line-controls
@@ -56,7 +56,7 @@
 
 
 /* =========================================
-   SECTION DIVIDER
+   BASIC — SECTION DIVIDER
 ========================================= */
 
 .basic-line-controls
@@ -70,7 +70,7 @@
 
 
 /* =========================================
-   CONTROL ROW
+   BASIC — CONTROL ROW
 ========================================= */
 
 .basic-line-controls
@@ -90,7 +90,7 @@
 
 
 /* =========================================
-   LABEL
+   BASIC — LABEL
 ========================================= */
 
 .basic-line-controls
@@ -100,7 +100,7 @@ label {
 
   color: var(--primary-light);
 
-  font-size: 10px;
+  font-size: var(--font-ui-label);
 
   font-weight: 700;
 
@@ -113,7 +113,7 @@ label {
 
 
 /* =========================================
-   TEXT INPUT
+   BASIC — TEXT INPUT
 ========================================= */
 
 .basic-line-controls
@@ -132,11 +132,7 @@ input[type="text"] {
   box-sizing: border-box;
 
   background:
-    linear-gradient(
-      135deg,
-      rgba(30, 43, 73, 0.88),
-      rgba(20, 31, 57, 0.92)
-    );
+    var(--gradient-control-input);
 
   border: 1px solid
     rgba(71, 85, 115, 0.75);
@@ -145,7 +141,7 @@ input[type="text"] {
 
   color: var(--text);
 
-  font-size: 12px;
+  font-size: var(--font-ui-input);
 
   font-weight: 500;
 
@@ -159,7 +155,7 @@ input[type="text"] {
 
 
 /* =========================================
-   NUMBER INPUT
+   BASIC — NUMBER INPUT
 ========================================= */
 
 .basic-line-controls
@@ -176,11 +172,7 @@ input[type="number"] {
   box-sizing: border-box;
 
   background:
-    linear-gradient(
-      135deg,
-      rgba(30, 43, 73, 0.88),
-      rgba(20, 31, 57, 0.92)
-    );
+    var(--gradient-control-input);
 
   border: 1px solid
     rgba(71, 85, 115, 0.75);
@@ -189,7 +181,7 @@ input[type="number"] {
 
   color: var(--text);
 
-  font-size: 12px;
+  font-size: var(--font-ui-input);
 
   font-weight: 500;
 
@@ -203,7 +195,7 @@ input[type="number"] {
 
 
 /* =========================================
-   INPUT HOVER
+   BASIC — INPUT HOVER
 ========================================= */
 
 .basic-line-controls
@@ -218,7 +210,7 @@ input:hover {
 
 
 /* =========================================
-   INPUT FOCUS
+   BASIC — INPUT FOCUS
 ========================================= */
 
 .basic-line-controls
@@ -229,12 +221,12 @@ input:focus {
   box-shadow:
     0 0 0 2px var(--primary-soft),
     0 0 10px
-    rgba(168, 85, 247, 0.08);
+      rgba(168, 85, 247, 0.08);
 }
 
 
 /* =========================================
-   TITLE
+   BASIC — TITLE
 ========================================= */
 
 .basic-line-controls
@@ -244,7 +236,7 @@ input:focus {
 
 
 /* =========================================
-   AXIS ROW
+   BASIC — AXIS ROW
 ========================================= */
 
 .basic-line-controls
@@ -263,7 +255,7 @@ input:focus {
 
 
 /* =========================================
-   AXIS CONTROL
+   BASIC — AXIS CONTROL
 ========================================= */
 
 .basic-line-controls
@@ -274,7 +266,7 @@ input:focus {
 
 
 /* =========================================
-   DATA SECTION
+   BASIC — DATA SECTION
 ========================================= */
 
 .basic-line-controls
@@ -284,17 +276,19 @@ input:focus {
 
 
 /* =========================================
-   SETTINGS SECTION
+   BASIC — SETTINGS SECTION
 ========================================= */
 
 .basic-line-controls
 .settings-section {
   min-width: 0;
+
+  padding-left: 0;
 }
 
 
 /* =========================================
-   STYLE SECTION
+   BASIC — STYLE SECTION
 ========================================= */
 
 .basic-line-controls
@@ -304,7 +298,25 @@ input:focus {
 
 
 /* =========================================
-   CHECKBOX
+   BASIC — TITLE + X-LABEL ALIGNMENT
+========================================= */
+
+.basic-line-controls
+.settings-section
+.title-row
+label,
+
+.basic-line-controls
+.settings-section
+.axis-row
+.control-row:first-child
+label {
+  width: 54px;
+}
+
+
+/* =========================================
+   BASIC — CHECKBOX
 ========================================= */
 
 .basic-line-controls
@@ -333,36 +345,236 @@ input[type="checkbox"] {
   flex-shrink: 0;
 }
 
+
+/* =========================================================
+   INTRODUCTION CONTROLS
+   PREMIUM COMPACT GLASS
+========================================================= */
+
+.introduction-controls {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 14px;
+
+  padding: 8px;
+
+  box-sizing: border-box;
+
+  background:
+    var(--gradient-main);
+
+  border: 1px solid
+    rgba(168, 85, 247, 0.42);
+
+  border-radius: 10px;
+
+  box-shadow:
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.04),
+
+    0 0 22px
+      rgba(124, 58, 237, 0.10),
+
+    0 6px 25px
+      rgba(0, 0, 0, 0.20);
+
+  overflow: hidden;
+}
+
+
 /* =========================================
-   ALIGN TITLE + X-LABEL
+   INTRO — CONTROL BOX
 ========================================= */
 
-.basic-line-controls .settings-section {
-  padding-left: 0;
-}
+.intro-control-box {
+  min-width: 0;
 
-.basic-line-controls .settings-section .title-row,
-.basic-line-controls .settings-section .axis-row {
-  padding-left: 0;
-}
+  display: flex;
 
+  flex-direction: column;
 
-/* TITLE input starts at same position as X-LABEL input */
+  justify-content: center;
 
-.basic-line-controls
-.settings-section
-.title-row
-label {
-  width: 54px;
+  gap: 5px;
+
+  padding: 2px 12px;
+
+  box-sizing: border-box;
 }
 
 
-/* X-LABEL label gets same fixed width */
+/* =========================================
+   INTRO — DIVIDER
+========================================= */
 
-.basic-line-controls
-.settings-section
-.axis-row
-.control-row:first-child
-label {
-  width: 54px;
+.intro-control-box
++ .intro-control-box {
+  border-left: 1px solid
+    rgba(148, 163, 184, 0.16);
+
+  padding-left: 14px;
+}
+
+
+/* =========================================
+   INTRO — TITLE
+========================================= */
+
+.intro-control-title {
+  color: var(--primary-light);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   INTRO — OPTIONS
+========================================= */
+
+.intro-control-options {
+  width: 100%;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 6px;
+}
+
+
+/* =========================================
+   INTRO — BUTTON
+========================================= */
+
+.intro-control-options button {
+  height: 30px;
+
+  padding: 0 10px;
+
+  box-sizing: border-box;
+
+  border: 1px solid
+    rgba(71, 85, 115, 0.75);
+
+  border-radius: 6px;
+
+  background:
+    var(--gradient-control-input);
+
+  color: var(--text-secondary);
+
+  font-size: var(--font-ui-button);
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+
+/* =========================================
+   INTRO — BUTTON HOVER
+========================================= */
+
+.intro-control-options button:hover {
+  background:
+    var(--gradient-control-input-hover);
+
+  border-color:
+    rgba(192, 132, 252, 0.55);
+
+  color: var(--text);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   INTRO — ACTIVE
+========================================= */
+
+.intro-control-options button.selected {
+  background:
+    var(--gradient-control-selected);
+
+  border-color:
+    rgba(192, 132, 252, 0.75);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 0 12px
+      rgba(168, 85, 247, 0.16),
+
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.06);
+}
+
+
+/* =========================================
+   INTRO — ACTIVE HOVER
+========================================= */
+
+.intro-control-options
+button.selected:hover {
+  background:
+    var(--gradient-code-run-hover);
+
+  border-color:
+    var(--primary-light);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .introduction-controls {
+    grid-template-columns: 1fr;
+
+    gap: 6px;
+  }
+
+  .intro-control-box {
+    padding: 5px 8px;
+  }
+
+  .intro-control-box
+  + .intro-control-box {
+    border-left: none;
+
+    border-top: 1px solid
+      rgba(148, 163, 184, 0.16);
+
+    padding-left: 8px;
+
+    padding-top: 7px;
+  }
 }

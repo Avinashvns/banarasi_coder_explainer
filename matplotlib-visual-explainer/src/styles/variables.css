@@ -1,4 +1,8 @@
 :root {
+  /* =========================================
+     BASE COLORS
+  ========================================= */
+
   --bg: #0b1020;
 
   --surface: #11182b;
@@ -18,15 +22,398 @@
   --border: #27324d;
   --border-light: #33415f;
 
+
+  /* =========================================
+     GLOBAL GRADIENTS
+  ========================================= */
+
+  --gradient-main:
+    linear-gradient(135deg,
+      rgba(91, 33, 182, 0.28),
+      rgba(30, 41, 90, 0.55) 45%,
+      rgba(49, 46, 129, 0.30));
+
+  --gradient-panel:
+    linear-gradient(135deg,
+      rgba(17, 24, 43, 0.96),
+      rgba(10, 15, 30, 0.98));
+
+  --gradient-sidebar:
+    radial-gradient(circle at 20% 5%,
+      rgba(124, 58, 237, 0.18),
+      transparent 28%),
+    radial-gradient(circle at 85% 70%,
+      rgba(59, 130, 246, 0.12),
+      transparent 30%),
+    linear-gradient(180deg,
+      #101633 0%,
+      #0d1429 45%,
+      #0a1020 100%);
+
+  /* PREMIUM HEADER */
+
+  --gradient-header:
+    linear-gradient(112deg,
+      #050816 0%,
+      #080d1d 18%,
+      #0d1530 36%,
+      #151b3d 52%,
+      #211a49 68%,
+      #24153f 82%,
+      #0b1024 100%);
+
+  --header-glow:
+    radial-gradient(ellipse at 42% -20%,
+      rgba(168, 85, 247, 0.24) 0%,
+      rgba(99, 102, 241, 0.13) 32%,
+      rgba(59, 130, 246, 0.05) 52%,
+      transparent 76%);
+
+  --header-bottom-glow:
+    linear-gradient(90deg,
+      transparent 0%,
+      rgba(99, 102, 241, 0.10) 35%,
+      rgba(168, 85, 247, 0.18) 65%,
+      transparent 100%);
+
+
+  /* =========================================
+     COMPONENT GRADIENTS
+  ========================================= */
+
+  --gradient-main-content:
+    radial-gradient(circle at 72% 18%,
+      rgba(99, 102, 241, 0.16),
+      transparent 30%);
+
+  --gradient-main-content-purple:
+    radial-gradient(circle at 85% 75%,
+      rgba(168, 85, 247, 0.13),
+      transparent 32%);
+
+  --gradient-main-content-bottom:
+    radial-gradient(circle at 45% 95%,
+      rgba(124, 58, 237, 0.10),
+      transparent 28%);
+
+  --gradient-main-content-base:
+    linear-gradient(135deg,
+      #080d1c 0%,
+      #0b1020 45%,
+      #100d24 100%);
+
+  --gradient-playground-controls:
+    linear-gradient(135deg,
+      rgba(25, 18, 55, 0.92),
+      rgba(12, 18, 38, 0.96));
+
+  --gradient-code-preview-glow:
+    radial-gradient(circle at 90% 10%,
+      rgba(124, 58, 237, 0.18),
+      transparent 30%);
+
+  --gradient-code-preview:
+    linear-gradient(145deg,
+      #11182f 0%,
+      #0b1024 55%,
+      #101735 100%);
+
+  --gradient-code-glow:
+    radial-gradient(circle,
+      rgba(168, 85, 247, 0.25),
+      transparent 70%);
+
+  --gradient-code-editor:
+    linear-gradient(135deg,
+      rgba(30, 41, 82, 0.92),
+      rgba(17, 24, 53, 0.94));
+
+  --gradient-code-run:
+    linear-gradient(135deg,
+      rgba(168, 85, 247, 0.28),
+      rgba(59, 130, 246, 0.16));
+
+  --gradient-code-run-hover:
+    linear-gradient(135deg,
+      rgba(168, 85, 247, 0.42),
+      rgba(59, 130, 246, 0.24));
+
+  --gradient-code-background:
+    linear-gradient(180deg,
+      #080d1a 0%,
+      #070b16 100%);
+
+  --gradient-code-error:
+    linear-gradient(90deg,
+      rgba(239, 68, 68, 0.13),
+      rgba(239, 68, 68, 0.06));
+
+
+  /* =========================================
+     CHART GRADIENTS
+  ========================================= */
+
+  --gradient-chart-top-purple:
+    radial-gradient(circle at 8% 10%,
+      rgba(192, 132, 252, 0.72),
+      transparent 26%);
+
+  --gradient-chart-bottom-blue:
+    radial-gradient(circle at 94% 78%,
+      rgba(59, 130, 246, 0.55),
+      transparent 30%);
+
+  --gradient-chart-bottom-purple:
+    radial-gradient(circle at 50% 110%,
+      rgba(124, 58, 237, 0.55),
+      transparent 38%);
+
+  --gradient-chart-background:
+    linear-gradient(135deg,
+      #1c1745 0%,
+      #20265d 45%,
+      #111a45 100%);
+
+  --gradient-chart-blue-glow:
+    radial-gradient(circle,
+      rgba(59, 130, 246, 0.38),
+      transparent 68%);
+
+  --gradient-chart-purple-glow:
+    radial-gradient(ellipse,
+      rgba(168, 85, 247, 0.45),
+      transparent 70%);
+
+  --gradient-glass-button:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.14),
+      rgba(255, 255, 255, 0.06));
+
+  --gradient-chart-viewport:
+    linear-gradient(145deg,
+      #eef2fa 0%,
+      #e4e9f4 100%);
+
+  --gradient-line-chart:
+    linear-gradient(145deg,
+      #f1f4fb 0%,
+      #e7ebf5 100%);
+
+  --gradient-chart-overlay:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.94),
+      rgba(241, 245, 249, 0.78));
+
+  --gradient-chart-visual-purple:
+    radial-gradient(circle at 15% 15%,
+      rgba(168, 85, 247, 0.55),
+      transparent 28%);
+
+  --gradient-chart-visual-blue:
+    radial-gradient(circle at 90% 80%,
+      rgba(59, 130, 246, 0.45),
+      transparent 30%);
+
+  --gradient-chart-visual-background:
+    linear-gradient(135deg,
+      #181443,
+      #20285f,
+      #111a42);
+
+  --gradient-chart-overlay-light:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(241, 245, 249, 0.82));
+
+
+  /* =========================================
+     INTRODUCTION
+  ========================================= */
+
+  --gradient-introduction-content:
+    linear-gradient(135deg,
+      rgba(17, 24, 43, 0.96),
+      rgba(20, 27, 52, 0.94));
+
+  --gradient-introduction-card:
+    linear-gradient(135deg,
+      rgba(30, 43, 73, 0.72),
+      rgba(20, 31, 57, 0.78));
+
+  --gradient-introduction-structure:
+    linear-gradient(135deg,
+      rgba(34, 48, 82, 0.85),
+      rgba(23, 35, 63, 0.88));
+
+  --gradient-introduction-plot:
+    linear-gradient(135deg,
+      rgba(30, 43, 73, 0.72),
+      rgba(15, 23, 42, 0.82));
+
+  --gradient-grid-x:
+    linear-gradient(to right,
+      rgba(148, 163, 184, 0.08) 1px,
+      transparent 1px);
+
+  --gradient-grid-y:
+    linear-gradient(to bottom,
+      rgba(148, 163, 184, 0.08) 1px,
+      transparent 1px);
+
+
+  /* =========================================
+     CONTROLS
+  ========================================= */
+
+  --gradient-control-input:
+    linear-gradient(135deg,
+      rgba(30, 43, 73, 0.88),
+      rgba(20, 31, 57, 0.92));
+
+  --gradient-control-input-hover:
+    linear-gradient(135deg,
+      rgba(34, 48, 82, 0.96),
+      rgba(23, 35, 63, 0.98));
+
+  --gradient-control-selected:
+    linear-gradient(135deg,
+      rgba(168, 85, 247, 0.34),
+      rgba(124, 58, 237, 0.24));
+
+
+  /* =========================================
+     BRAND
+  ========================================= */
+
+  --gradient-brand-logo:
+    linear-gradient(135deg,
+      #7c3aed,
+      #a855f7 55%,
+      #6366f1);
+
+  --gradient-home-glow:
+    radial-gradient(circle at 80% 20%,
+      rgba(168, 85, 247, 0.07),
+      transparent 35%);
+
+  --gradient-active-indicator:
+    linear-gradient(180deg,
+      var(--primary-light),
+      var(--primary));
+
+
+  /* =========================================
+     GLOW / BORDERS
+  ========================================= */
+
+  --border-purple: rgba(168, 85, 247, 0.42);
+
+  --border-purple-soft: rgba(168, 85, 247, 0.22);
+
+  --border-divider: rgba(148, 163, 184, 0.16);
+
+  --glow-purple:
+    0 0 22px rgba(124, 58, 237, 0.10);
+
+  --glow-purple-strong:
+    0 0 28px rgba(168, 85, 247, 0.18);
+
+
+  /* =========================================
+     SHADOWS
+  ========================================= */
+
+  --shadow-card:
+    0 8px 25px rgba(0, 0, 0, 0.18);
+
+  --shadow-panel:
+    0 6px 25px rgba(0, 0, 0, 0.20);
+
+  --shadow-glow:
+    0 0 22px rgba(124, 58, 237, 0.10);
+
+
+  /* =========================================
+     CHART
+  ========================================= */
+
   --chart-line: #a855f7;
   --chart-point: #f59e0b;
   --chart-grid: #26314a;
 
-  --code-bg: #0a0f1e;
+  --code-bg: #080d1a;
+
+
+  /* =========================================
+   TYPOGRAPHY
+========================================= */
+
+  --font-ui-label: 14px;
+  --font-ui-input: 15px;
+  --font-ui-button: 14px;
+  --font-ui-small: 13px;
+
+  --font-chart-axis: 13px;
+
+  --font-body: 14px;
+  --font-body-large: 15px;
+
+  --font-heading-sm: 16px;
+  --font-heading-md: 20px;
+  --font-heading-lg: 28px;
+
+  /* =========================================
+   CHART TYPOGRAPHY
+========================================= */
+
+--font-chart-title: 20px;
+
+--font-chart-button: 12px;
+
+--font-chart-zoom: 17px;
+
+--font-chart-zoom-value: 11px;
+
+--font-chart-tick: 18px;
+
+--font-chart-tick-active: 20px;
+
+--font-chart-tooltip: 14px;
+
+--font-chart-axis-label: 15px;
+
+--font-chart-axis-label-fullscreen: 22px;
+
+/* =========================================
+   INTRODUCTION TYPOGRAPHY
+========================================= */
+
+--font-intro-badge: 11px;
+
+--font-intro-heading: 24px;
+
+--font-intro-description: 16px;
+
+--font-intro-point: 14px;
+
+--font-intro-point-number: 11px;
+
+--font-intro-visual-title: 12px;
+
+--font-intro-structure-label: 11px;
+
+--font-intro-plot-label: 10px;
+
+--font-intro-axis-label: 11px;
+
+--font-intro-legend: 12px;
+
+
+  /* =========================================
+     RADIUS
+  ========================================= */
 
   --radius-sm: 6px;
   --radius-md: 9px;
-
-  --shadow-card:
-    0 8px 25px rgba(0, 0, 0, 0.18);
+  --radius-lg: 12px;
 }

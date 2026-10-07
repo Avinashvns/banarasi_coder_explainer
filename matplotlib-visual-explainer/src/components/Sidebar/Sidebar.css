@@ -1,78 +1,220 @@
+/* =========================================
+   SIDEBAR
+========================================= */
+
 .sidebar {
   width: 252px;
   min-width: 252px;
 
+  height: calc(100vh - 64px);
+
   position: relative;
 
-  padding: 24px 14px;
+  padding: 18px 10px;
+
   box-sizing: border-box;
 
-  background: #0d1426;
-  border-right: 1px solid var(--border);
+  background: var(--gradient-sidebar);
+
+  border-right: 1px solid var(--border-purple-soft);
+
+  box-shadow:
+    inset -1px 0 rgba(255, 255, 255, 0.02),
+    8px 0 25px rgba(0, 0, 0, 0.12);
+
+  overflow-y: auto;
+
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    rgba(168, 85, 247, 0.35)
+    transparent;
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background:
+    rgba(168, 85, 247, 0.30);
+
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background:
+    rgba(168, 85, 247, 0.50);
 }
 
 
-/* ========================================
+/* =========================================
    SIDEBAR TITLE
-======================================== */
+========================================= */
 
 .sidebar-title {
-  padding: 0 10px;
-  margin-bottom: 14px;
+  padding: 0 12px;
 
-  color: var(--primary-light);
+  margin-bottom: 10px;
 
-  font-size: 11px;
-  font-weight: 700;
+  color: var(--text-muted);
 
-  letter-spacing: 0.08em;
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.10em;
+
   text-transform: uppercase;
 }
 
 
-/* ========================================
+/* =========================================
    MODULE LIST
-======================================== */
+========================================= */
 
 .module-list {
   display: flex;
+
   flex-direction: column;
+
   gap: 3px;
 }
 
 
-/* ========================================
+/* =========================================
    MODULE ITEM
-======================================== */
+========================================= */
 
 .module-item {
-  padding: 10px 11px;
+  position: relative;
 
-  border-radius: 6px;
+  padding: 10px 14px;
+
+  border-radius: 7px;
 
   color: var(--text-secondary);
 
   font-size: 15px;
-  font-weight: 500;
+
+  font-weight: 600;
+
+  line-height: 1.25;
 
   cursor: pointer;
 
+  user-select: none;
+
   transition:
-    background 0.15s ease,
-    color 0.15s ease,
-    transform 0.15s ease;
+    background 0.16s ease,
+    color 0.16s ease,
+    transform 0.16s ease,
+    box-shadow 0.16s ease;
 }
+
+
+/* =========================================
+   HOVER
+========================================= */
 
 .module-item:hover {
-  background: var(--surface-light);
+  background: var(--primary-soft);
+
   color: var(--text);
+
+  transform: translateX(2px);
 }
 
+
+/* =========================================
+   ACTIVE MODULE
+========================================= */
+
 .module-item.active {
-  background: var(--primary-soft);
+  background: var(--gradient-panel);
+
   color: var(--primary-light);
 
-  border-left: 2px solid var(--primary);
+  font-weight: 700;
 
-  font-weight: 600;
+  box-shadow:
+    inset 0 0 0 1px
+    var(--border-purple-soft);
+}
+
+
+/* =========================================
+   ACTIVE INDICATOR
+========================================= */
+
+.module-item.active::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  top: 7px;
+  bottom: 7px;
+
+  width: 3px;
+
+  border-radius: 0 4px 4px 0;
+
+  background: var(--gradient-active-indicator);
+
+  box-shadow:
+    0 0 10px
+    rgba(168, 85, 247, 0.35);
+}
+
+
+/* =========================================
+   ACTIVE HOVER
+========================================= */
+
+.module-item.active:hover {
+  background: var(--gradient-panel);
+
+  transform: translateX(1px);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .sidebar {
+    width: 220px;
+    min-width: 220px;
+  }
+
+  .module-item {
+    font-size: 14px;
+
+    padding: 9px 12px;
+  }
+}
+
+
+@media (max-width: 700px) {
+
+  .sidebar {
+    width: 200px;
+    min-width: 200px;
+  }
+
+  .module-item {
+    font-size: 13px;
+  }
 }

@@ -1,14 +1,38 @@
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+
 .layout {
   display: flex;
-  min-height: calc(100vh - 70px);
+
+  min-height:
+    calc(100vh - 64px);
+
   gap: 0;
 }
 
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
 .main-content {
   flex: 1;
+
   min-width: 0;
+
+  min-height:
+    calc(100vh - 64px);
 
   padding: 0;
 
-  background: var(--bg);
+  box-sizing: border-box;
+
+  background:
+    var(--gradient-main-content),
+    var(--gradient-main-content-purple),
+    var(--gradient-main-content-bottom),
+    var(--gradient-main-content-base);
+
+  overflow-x: hidden;
 }

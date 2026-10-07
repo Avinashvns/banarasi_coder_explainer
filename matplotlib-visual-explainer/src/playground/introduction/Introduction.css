@@ -1,131 +1,252 @@
+/* =========================================================
+   INTRODUCTION CONTENT
+   PREMIUM DARK GLASS
+========================================================= */
+
 .introduction-content {
   width: 100%;
+
   box-sizing: border-box;
 
   padding: 20px 22px;
 
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  background:
+    var(--gradient-introduction-content);
 
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+  border: 1px solid
+    rgba(168, 85, 247, 0.28);
+
+  border-radius: 10px;
+
+  box-shadow:
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.03),
+
+    0 6px 25px
+      rgba(0, 0, 0, 0.18);
 }
+
+
+/* =========================================================
+   CONTENT HEADER
+========================================================= */
 
 .introduction-content-header {
   display: flex;
+
   align-items: center;
+
   gap: 10px;
+
   margin-bottom: 10px;
 }
+
+
+/* =========================================================
+   INTRODUCTION BADGE
+========================================================= */
 
 .introduction-badge {
   padding: 4px 7px;
 
-  border-radius: 4px;
+  border-radius: 5px;
 
-  background: rgba(168, 85, 247, 0.1);
-  color: #7c3aed;
+  background:
+    rgba(168, 85, 247, 0.14);
 
-  font-size: 10px;
+  border: 1px solid
+    rgba(168, 85, 247, 0.24);
+
+  color: var(--primary-light);
+
+  font-size: var(--font-intro-badge);
+
   font-weight: 700;
+
   letter-spacing: 0.05em;
 }
+
+
+/* =========================================================
+   HEADING
+========================================================= */
 
 .introduction-content h2 {
   margin: 0;
 
-  color: #0f172a;
+  color: var(--text);
 
-  font-size: 21px;
+  font-size: var(--font-intro-heading);
+
   font-weight: 700;
 }
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
 
 .introduction-description {
   max-width: 900px;
 
   margin: 0 0 16px;
 
-  color: #475569;
+  color: var(--text-secondary);
 
-  font-size: 14px;
+  font-size: var(--font-intro-description);
+
   line-height: 1.6;
 }
 
+
+/* =========================================================
+   POINTS
+========================================================= */
+
 .introduction-points {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
   gap: 8px 14px;
 }
 
+
+/* =========================================================
+   POINT
+========================================================= */
+
 .introduction-point {
   display: flex;
+
   align-items: center;
+
   gap: 9px;
 
   padding: 9px 10px;
 
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
+  background:
+    var(--gradient-introduction-card);
 
-  color: #334155;
+  border: 1px solid
+    rgba(71, 85, 115, 0.55);
 
-  font-size: 12px;
+  border-radius: 7px;
+
+  color: var(--text-secondary);
+
+  font-size: var(--font-intro-point);
+
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    transform 0.15s ease;
 }
+
+
+.introduction-point:hover {
+  background:
+    var(--gradient-introduction-structure);
+
+  border-color:
+    rgba(168, 85, 247, 0.35);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   POINT NUMBER
+========================================================= */
 
 .point-number {
   width: 20px;
+
   height: 20px;
 
   flex-shrink: 0;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   border-radius: 50%;
 
-  background: rgba(168, 85, 247, 0.1);
-  color: #7c3aed;
+  background:
+    rgba(168, 85, 247, 0.14);
 
-  font-size: 10px;
+  border: 1px solid
+    rgba(168, 85, 247, 0.20);
+
+  color: var(--primary-light);
+
+  font-size: var(--font-intro-point-number);
+
   font-weight: 700;
 }
 
 
 /* =========================================================
    MATPLOTLIB STRUCTURE
-   ========================================================= */
+========================================================= */
 
 .introduction-visual {
   width: 100%;
+
   box-sizing: border-box;
 
   padding: 18px 22px 20px;
 
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  background:
+    var(--gradient-introduction-content);
 
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+  border: 1px solid
+    rgba(168, 85, 247, 0.28);
+
+  border-radius: 10px;
+
+  box-shadow:
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.03),
+
+    0 6px 25px
+      rgba(0, 0, 0, 0.18);
 }
+
+
+/* =========================================================
+   VISUAL TITLE
+========================================================= */
 
 .visual-title {
   margin-bottom: 14px;
 
-  color: #7c3aed;
+  color: var(--primary-light);
 
-  font-size: 11px;
+  font-size: var(--font-intro-visual-title);
+
   font-weight: 700;
+
   letter-spacing: 0.06em;
 }
 
+
+/* =========================================================
+   STRUCTURE STAGE
+========================================================= */
+
 .structure-stage {
   width: 100%;
+
   height: 360px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   box-sizing: border-box;
@@ -134,21 +255,25 @@
 
 /* =========================================================
    FIGURE
-   ========================================================= */
+========================================================= */
 
 .structure-figure {
   position: relative;
 
   width: min(900px, 88%);
+
   height: 310px;
 
   padding: 38px 42px 40px;
 
   box-sizing: border-box;
 
-  background: #f8fafc;
+  background:
+    var(--gradient-introduction-plot);
 
-  border: 2px solid #94a3b8;
+  border: 2px solid
+    rgba(148, 163, 184, 0.48);
+
   border-radius: 10px;
 
   transition:
@@ -156,58 +281,73 @@
     box-shadow 0.2s ease;
 }
 
+
 .structure-figure.highlight {
-  border-width: 4px;
-  border-color: #a855f7;
+  border-width: 3px;
+
+  border-color: var(--primary);
 
   box-shadow:
-    0 0 0 4px rgba(168, 85, 247, 0.14),
-    0 10px 30px rgba(168, 85, 247, 0.14);
+    0 0 0 4px
+      rgba(168, 85, 247, 0.12),
+
+    0 10px 30px
+      rgba(168, 85, 247, 0.12);
 }
 
 
 /* =========================================================
-   LABELS
-   ========================================================= */
+   STRUCTURE LABELS
+========================================================= */
 
 .structure-label {
   position: absolute;
 
-  font-size: 10px;
+  font-size: var(--font-intro-structure-label);
+
   font-weight: 700;
+
   letter-spacing: 0.04em;
 }
 
+
 .figure-label {
   top: 11px;
+
   left: 15px;
 
-  color: #64748b;
+  color: var(--text-muted);
 }
+
 
 .axes-label {
   top: 10px;
+
   right: 14px;
 
-  color: #64748b;
+  color: var(--text-muted);
 }
 
 
 /* =========================================================
    AXES
-   ========================================================= */
+========================================================= */
 
 .structure-axes {
   position: relative;
 
   width: 100%;
+
   height: 100%;
 
   box-sizing: border-box;
 
-  background: #ffffff;
+  background:
+    rgba(10, 15, 30, 0.72);
 
-  border: 2px solid #64748b;
+  border: 2px solid
+    rgba(100, 116, 139, 0.72);
+
   border-radius: 7px;
 
   transition:
@@ -215,50 +355,51 @@
     box-shadow 0.2s ease;
 }
 
+
 .structure-axes.highlight {
-  border-width: 4px;
-  border-color: #a855f7;
+  border-width: 3px;
+
+  border-color: var(--primary);
 
   box-shadow:
-    0 0 0 4px rgba(168, 85, 247, 0.12);
+    0 0 0 4px
+      rgba(168, 85, 247, 0.10);
 }
 
 
 /* =========================================================
    PLOT AREA
-   ========================================================= */
+========================================================= */
 
 .structure-plot {
   position: absolute;
 
   left: 58px;
+
   right: 30px;
+
   top: 35px;
+
   bottom: 45px;
 
   overflow: hidden;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
-  border: 1px dashed #cbd5e1;
+  border: 1px dashed
+    rgba(148, 163, 184, 0.35);
 
   background:
-    linear-gradient(
-      to right,
-      rgba(148, 163, 184, 0.11) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(148, 163, 184, 0.11) 1px,
-      transparent 1px
-    );
+    var(--gradient-grid-x),
+    var(--gradient-grid-y);
 
   background-size: 42px 42px;
 
-  color: #a855f7;
+  color: var(--primary);
 
   transition:
     border-color 0.2s ease,
@@ -266,39 +407,55 @@
     box-shadow 0.2s ease;
 }
 
-.structure-plot.highlight {
-  border: 3px solid #a855f7;
 
-  background-color: rgba(168, 85, 247, 0.07);
+.structure-plot.highlight {
+  border: 3px solid var(--primary);
+
+  background-color:
+    rgba(168, 85, 247, 0.08);
 
   box-shadow:
-    inset 0 0 0 3px rgba(168, 85, 247, 0.12);
+    inset 0 0 0 3px
+      rgba(168, 85, 247, 0.10),
+
+    0 0 18px
+      rgba(168, 85, 247, 0.08);
 }
+
+
+/* =========================================================
+   PLOT LABEL
+========================================================= */
 
 .plot-label {
   position: absolute;
 
   top: 8px;
+
   left: 10px;
 
-  color: #94a3b8;
+  color: var(--text-muted);
 
-  font-size: 9px;
+  font-size: var(--font-intro-plot-label);
+
   font-weight: 700;
+
   letter-spacing: 0.03em;
 }
 
 
 /* =========================================================
-   CHART INSIDE PLOT AREA
-   ========================================================= */
+   CHART
+========================================================= */
 
 .structure-chart {
   width: 88%;
+
   height: 75%;
 
   overflow: visible;
 }
+
 
 .structure-chart circle {
   fill: currentColor;
@@ -307,13 +464,15 @@
 
 /* =========================================================
    X AXIS
-   ========================================================= */
+========================================================= */
 
 .structure-x-axis {
   position: absolute;
 
   left: 58px;
+
   right: 30px;
+
   bottom: 28px;
 
   height: 2px;
@@ -325,55 +484,67 @@
     background-color 0.2s ease;
 }
 
+
 .structure-x-axis::after {
   content: "";
 
   position: absolute;
 
   right: -1px;
+
   top: -4px;
 
   border-left: 8px solid #64748b;
+
   border-top: 5px solid transparent;
+
   border-bottom: 5px solid transparent;
 }
+
 
 .structure-x-axis span {
   position: absolute;
 
   right: -20px;
+
   top: -8px;
 
-  color: #64748b;
+  color: var(--text-muted);
 
-  font-size: 10px;
+  font-size: var(--font-intro-axis-label);
+
   font-weight: 700;
 }
+
 
 .structure-x-axis.highlight {
   height: 6px;
 
-  background: #f59e0b;
+  background: var(--accent);
 }
+
 
 .structure-x-axis.highlight::after {
-  border-left-color: #f59e0b;
+  border-left-color: var(--accent);
 }
 
+
 .structure-x-axis.highlight span {
-  color: #f59e0b;
+  color: var(--accent);
 }
 
 
 /* =========================================================
    Y AXIS
-   ========================================================= */
+========================================================= */
 
 .structure-y-axis {
   position: absolute;
 
   left: 42px;
+
   top: 35px;
+
   bottom: 28px;
 
   width: 2px;
@@ -385,108 +556,161 @@
     background-color 0.2s ease;
 }
 
+
 .structure-y-axis::after {
   content: "";
 
   position: absolute;
 
   left: -4px;
+
   top: -1px;
 
   border-bottom: 8px solid #64748b;
+
   border-left: 5px solid transparent;
+
   border-right: 5px solid transparent;
 }
+
 
 .structure-y-axis span {
   position: absolute;
 
   left: -16px;
+
   top: -18px;
 
-  color: #64748b;
+  color: var(--text-muted);
 
-  font-size: 10px;
+  font-size: var(--font-intro-axis-label);
+
   font-weight: 700;
 }
+
 
 .structure-y-axis.highlight {
   width: 6px;
 
-  background: #f59e0b;
+  background: var(--accent);
 }
+
 
 .structure-y-axis.highlight::after {
-  border-bottom-color: #f59e0b;
+  border-bottom-color: var(--accent);
 }
 
+
 .structure-y-axis.highlight span {
-  color: #f59e0b;
+  color: var(--accent);
 }
 
 
 /* =========================================================
    LEGEND
-   ========================================================= */
+========================================================= */
 
 .structure-legend {
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   gap: 24px;
 
   margin-top: 8px;
 
-  color: #64748b;
+  color: var(--text-muted);
 
-  font-size: 11px;
+  font-size: var(--font-intro-legend);
 }
+
 
 .structure-legend > div {
   display: flex;
+
   align-items: center;
+
   gap: 6px;
 }
 
+
 .legend-dot {
   width: 8px;
+
   height: 8px;
 
   border-radius: 50%;
 }
 
+
 .figure-dot {
   background: #94a3b8;
 }
+
 
 .axes-dot {
   background: #64748b;
 }
 
+
 .plot-dot {
-  background: #a855f7;
+  background: var(--primary);
 }
+
 
 .axis-dot {
-  background: #f59e0b;
+  background: var(--accent);
 }
 
+
+/* =========================================================
+   INTRODUCTION LEARNING ROW
+========================================================= */
 
 .introduction-learning-row {
   width: 100%;
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
 
   gap: 14px;
 
   align-items: stretch;
 }
 
-.introduction-learning-row .introduction-content,
-.introduction-learning-row .introduction-visual {
+
+.introduction-learning-row
+.introduction-content,
+
+.introduction-learning-row
+.introduction-visual {
   width: 100%;
+
   height: 100%;
+
   box-sizing: border-box;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .introduction-learning-row {
+    grid-template-columns: 1fr;
+  }
+
+  .introduction-points {
+    grid-template-columns: 1fr;
+  }
+
+  .structure-stage {
+    height: 320px;
+  }
 }
