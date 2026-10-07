@@ -1,12 +1,26 @@
+/* ========================================
+   CHART CONTAINER
+======================================== */
+
 .chart-preview {
+  width: 100%;
   min-height: 500px;
+
   padding: 20px 24px;
   box-sizing: border-box;
 
-  background: white;
-  border: 1px solid #dbe3ee;
-  border-radius: 9px;
+  background: #ffffff;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-card);
 }
+
+
+/* ========================================
+   HEADER
+======================================== */
 
 .chart-header {
   display: flex;
@@ -19,10 +33,56 @@
 .chart-preview h2 {
   margin: 0;
 
+  color: #0f172a;
+
   font-size: 21px;
   font-weight: 700;
-  color: #0f172a;
 }
+
+
+/* ========================================
+   ACTIONS
+======================================== */
+
+.chart-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* ========================================
+   FULLSCREEN BUTTON
+======================================== */
+
+.fullscreen-button {
+  height: 32px;
+  padding: 0 12px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+
+  background: #f8fafc;
+  color: #334155;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.15s ease;
+}
+
+.fullscreen-button:hover {
+  background: #f1f5f9;
+  border-color: #a855f7;
+  color: #7e22ce;
+}
+
+
+/* ========================================
+   ZOOM CONTROLS
+======================================== */
 
 .zoom-controls {
   display: flex;
@@ -37,15 +97,21 @@
   border: 1px solid #cbd5e1;
   border-radius: 6px;
 
-  background: white;
+  background: #f8fafc;
   color: #334155;
 
   font-size: 17px;
+  font-weight: 600;
+
   cursor: pointer;
+
+  transition: 0.15s ease;
 }
 
 .zoom-controls button:hover {
   background: #f1f5f9;
+  border-color: #a855f7;
+  color: #7e22ce;
 }
 
 .zoom-controls span {
@@ -53,79 +119,324 @@
 
   text-align: center;
 
+  color: #334155;
+
   font-size: 12px;
   font-weight: 600;
-
-  color: #64748b;
 }
 
-.zoom-controls .reset-zoom {
-  font-size: 15px;
-}
+
+/* ========================================
+   CHART VIEWPORT
+======================================== */
 
 .chart-viewport {
+  position: relative;
+
   width: 100%;
-  height: 420px;
+  height: clamp(420px, 55vh, 720px);
 
   overflow: hidden;
+
+  background: #ffffff;
 }
+
+
+/* ========================================
+   SVG CHART
+======================================== */
 
 .line-chart {
   width: 100%;
   height: 100%;
 
   display: block;
+
+  background: #ffffff;
 }
 
-/* Grid */
+
+/* ========================================
+   GRID
+======================================== */
 
 .chart-grid {
-  stroke: #e5e7eb;
+  stroke: #e2e8f0;
   stroke-width: 1;
   stroke-dasharray: 4 4;
 }
 
-/* Axes */
+
+/* ========================================
+   AXES
+======================================== */
 
 .chart-axis {
   stroke: #64748b;
   stroke-width: 1.5;
 }
 
-/* Tick Numbers */
+
+/* ========================================
+   TICK NUMBERS
+======================================== */
 
 .chart-tick {
-  fill: #334155;
+  fill: #1e293b;
 
-  font-size: 17px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    fill 0.15s ease,
+    font-size 0.15s ease;
 }
 
-/* Line */
+.chart-tick-active {
+  fill: #a855f7;
+
+  font-size: 20px;
+  font-weight: 800;
+}
+
+
+/* ========================================
+   AXIS HOVER GUIDE
+======================================== */
+
+.axis-hover-guide {
+  stroke: #a855f7;
+
+  stroke-width: 1.5;
+
+  stroke-dasharray: 6 5;
+
+  opacity: 0.55;
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   GRAPH LINE
+======================================== */
 
 .chart-line {
   fill: none;
 
-  stroke: #2563eb;
+  stroke: #a855f7;
+
+  stroke-width: 3.5;
 
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-/* Points */
+
+/* ========================================
+   DATA POINTS
+======================================== */
 
 .chart-point {
-  fill: white;
+  fill: rgba(255, 255, 255, 0.9);
 
-  stroke: #2563eb;
-  stroke-width: 3;
+  stroke: #f59e0b;
+  stroke-width: 3.5;
+
+  cursor: pointer;
+
+  transition:
+    r 0.15s ease,
+    filter 0.15s ease;
 }
 
-/* Axis Labels */
+.chart-point-active {
+  fill: #ffffff;
 
-.axis-title {
-  fill: #0f172a;
+  stroke: #f59e0b;
+  stroke-width: 4;
 
-  font-size: 17px;
+  filter: drop-shadow(
+    0 0 5px rgba(245, 158, 11, 0.45)
+  );
+}
+
+.point-glow {
+  fill: rgba(245, 158, 11, 0.14);
+
+  stroke: rgba(245, 158, 11, 0.18);
+
+  stroke-width: 2;
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   DATA TOOLTIP
+======================================== */
+
+.data-tooltip {
+  pointer-events: none;
+}
+
+.tooltip-box {
+  fill: rgba(15, 23, 42, 0.90);
+
+  stroke: rgba(168, 85, 247, 0.45);
+
+  stroke-width: 1;
+
+  filter: drop-shadow(
+    0 8px 18px rgba(15, 23, 42, 0.20)
+  );
+}
+
+.tooltip-text {
+  fill: #ffffff;
+
+  font-size: 14px;
+
   font-weight: 600;
 }
+
+
+/* ========================================
+   GLASS AXIS LABELS
+======================================== */
+
+.glass-axis-label {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 28px;
+
+  padding: 0 14px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.72),
+    rgba(241, 245, 249, 0.42)
+  );
+
+  border: 1px solid rgba(148, 163, 184, 0.45);
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 5px 16px rgba(15, 23, 42, 0.10),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  color: #0f172a;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  letter-spacing: 0.2px;
+
+  z-index: 10;
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   X AXIS GLASS
+======================================== */
+
+.glass-x-axis {
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+
+  min-width: 90px;
+}
+
+
+/* ========================================
+   Y AXIS GLASS
+======================================== */
+
+.glass-y-axis {
+  left: 0px;
+  top: 50%;
+
+  transform: translateY(-50%) rotate(-90deg);
+
+  min-width: 90px;
+}
+
+
+/* ========================================
+   FULLSCREEN
+======================================== */
+
+.chart-preview.chart-fullscreen {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  width: 100vw;
+  height: 100vh;
+
+  min-height: 100vh;
+
+  padding: 28px 36px;
+
+  border: none;
+  border-radius: 0;
+
+  box-shadow: none;
+
+  background: #ffffff;
+}
+
+.chart-fullscreen .chart-viewport {
+  height: calc(100vh - 110px);
+}
+
+
+/* ========================================
+   FULLSCREEN GLASS AXIS
+======================================== */
+
+.chart-fullscreen .glass-axis-label {
+  height: 40px;
+
+  font-size: 22px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.78),
+    rgba(241, 245, 249, 0.45)
+  );
+
+  border-radius: 20px;
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.14),
+    inset 0 1px 1px rgba(255, 255, 255, 1);
+}
+
+.chart-fullscreen .glass-x-axis {
+  min-width: 135px;
+}
+
+.chart-fullscreen .glass-y-axis {
+  min-width: 135px;
+}
+

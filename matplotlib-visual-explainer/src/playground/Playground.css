@@ -1,7 +1,9 @@
 .playground {
   width: 100%;
+
   display: flex;
   flex-direction: column;
+
   gap: 12px;
 }
 
@@ -10,14 +12,17 @@
 
   display: flex;
   align-items: center;
+
   gap: 20px;
 
-  padding: 8px 10px;
-  box-sizing: border-box;
+  padding: 8px 12px;
 
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 7px;
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-card);
 
   white-space: nowrap;
   overflow-x: auto;
@@ -27,7 +32,10 @@
   width: 100%;
 
   display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(220px, 1fr);
 
-  gap: 16px;
+  grid-template-columns:
+    minmax(0, 2.6fr)
+    minmax(300px, 1fr);
+
+  gap: 12px;
 }

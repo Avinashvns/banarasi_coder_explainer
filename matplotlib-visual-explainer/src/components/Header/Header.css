@@ -1,27 +1,34 @@
 .header {
-  height: 64px;
-  background: #111827;
-  color: white;
+  height: 70px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding: 0 24px;
-  border-bottom: 1px solid #243047;
+
+  background: #0a0f1e;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-title {
+  color: var(--text);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.header-title span {
+  margin-left: 8px;
+
+  color: var(--primary-light);
+
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .header-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-}
-
-.header-brand small {
-  color: #94a3b8;
-  font-size: 11px;
-}
-
-.header-center {
-  color: #94a3b8;
-  font-size: 14px;
+  color: var(--text-secondary);
+  font-size: 13px;
 }

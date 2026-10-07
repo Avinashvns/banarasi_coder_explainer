@@ -1,3 +1,32 @@
 :root {
-  --page-bg: #f8fafc;
+  --bg: #0b1020;
+
+  --surface: #11182b;
+  --surface-light: #18213a;
+  --surface-hover: #202b48;
+
+  --primary: #a855f7;
+  --primary-light: #c084fc;
+  --primary-soft: rgba(168, 85, 247, 0.12);
+
+  --accent: #f59e0b;
+
+  --text: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  --border: #27324d;
+  --border-light: #33415f;
+
+  --chart-line: #a855f7;
+  --chart-point: #f59e0b;
+  --chart-grid: #26314a;
+
+  --code-bg: #0a0f1e;
+
+  --radius-sm: 6px;
+  --radius-md: 9px;
+
+  --shadow-card:
+    0 8px 25px rgba(0, 0, 0, 0.18);
 }

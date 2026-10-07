@@ -1,43 +1,78 @@
 .sidebar {
-  width: 260px;
-  min-height: calc(100vh - 64px);
-  background: #0f172a;
-  color: #cbd5e1;
-  padding: 20px 12px;
-  border-right: 1px solid #243047;
-  overflow-y: auto;
+  width: 252px;
+  min-width: 252px;
+
+  position: relative;
+
+  padding: 24px 14px;
+  box-sizing: border-box;
+
+  background: #0d1426;
+  border-right: 1px solid var(--border);
 }
 
+
+/* ========================================
+   SIDEBAR TITLE
+======================================== */
+
 .sidebar-title {
-  font-size: 12px;
+  padding: 0 10px;
+  margin-bottom: 14px;
+
+  color: var(--primary-light);
+
+  font-size: 11px;
   font-weight: 700;
-  color: #64748b;
-  padding: 0 12px 14px;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
+
+
+/* ========================================
+   MODULE LIST
+======================================== */
 
 .module-list {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
 }
+
+
+/* ========================================
+   MODULE ITEM
+======================================== */
 
 .module-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 9px 12px;
-  border-radius: 6px;
-  font-size: 13px;
-  cursor: pointer;
-}
+  padding: 10px 11px;
 
-.module-item span {
-  width: 22px;
-  color: #64748b;
-  font-size: 11px;
+  border-radius: 6px;
+
+  color: var(--text-secondary);
+
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
 }
 
 .module-item:hover {
-  background: #1e293b;
-  color: white;
+  background: var(--surface-light);
+  color: var(--text);
+}
+
+.module-item.active {
+  background: var(--primary-soft);
+  color: var(--primary-light);
+
+  border-left: 2px solid var(--primary);
+
+  font-weight: 600;
 }

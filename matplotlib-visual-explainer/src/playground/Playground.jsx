@@ -46,6 +46,8 @@ function Playground() {
         <CodePreview
           data={data}
           style={settings}
+          setData={setData}
+          setSettings={setSettings}
         />
       </div>
 

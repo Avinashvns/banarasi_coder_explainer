@@ -4,16 +4,13 @@
   gap: 8px;
 }
 
-.settings-header {
-  margin: 0;
-}
-
 .settings-header h3 {
   margin: 0;
 
+  color: var(--primary-light);
+
   font-size: 11px;
   font-weight: 700;
-  color: #64748b;
 
   white-space: nowrap;
 }
@@ -29,8 +26,9 @@
   align-items: center;
   gap: 5px;
 
+  color: var(--text-muted);
+
   font-size: 11px;
-  color: #475569;
 
   white-space: nowrap;
 }
@@ -38,17 +36,22 @@
 .settings-grid input {
   width: 85px;
   height: 28px;
-  box-sizing: border-box;
 
   padding: 4px 7px;
 
-  border: 1px solid #cbd5e1;
+  background: var(--surface-light);
+
+  border: 1px solid var(--border);
   border-radius: 5px;
 
+  color: var(--text);
+
   font-size: 11px;
+
   outline: none;
 }
 
 .settings-grid input:focus {
-  border-color: #64748b;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-soft);
 }
