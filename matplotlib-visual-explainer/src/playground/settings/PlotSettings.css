@@ -1,7 +1,11 @@
 .plot-settings {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+
+  padding-left: 18px;
+
+  border-left: 1px solid var(--border);
 }
 
 .settings-header h3 {
@@ -34,10 +38,11 @@
 }
 
 .settings-grid input {
-  width: 85px;
-  height: 28px;
+  width: 95px;
+  height: 30px;
 
-  padding: 4px 7px;
+  padding: 4px 8px;
+  box-sizing: border-box;
 
   background: var(--surface-light);
 
@@ -46,7 +51,7 @@
 
   color: var(--text);
 
-  font-size: 11px;
+  font-size: 12px;
 
   outline: none;
 }
@@ -54,4 +59,8 @@
 .settings-grid input:focus {
   border-color: var(--primary);
   box-shadow: 0 0 0 2px var(--primary-soft);
+}
+
+.settings-grid label:last-child input {
+  width: 75px;
 }

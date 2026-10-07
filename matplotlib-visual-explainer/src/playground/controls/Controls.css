@@ -1,47 +1,368 @@
-.data-controls {
+/* =========================================
+   BASIC LINE PLOT CONTROLS
+========================================= */
+
+.basic-line-controls {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 14px;
+
+  padding: 7px 8px;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(17, 24, 43, 0.95),
+      rgba(10, 15, 30, 0.98)
+    );
+
+  border: 1px solid
+    rgba(168, 85, 247, 0.28);
+
+  border-radius: 9px;
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.03),
+    0 5px 18px
+    rgba(0, 0, 0, 0.14);
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   SECTION
+========================================= */
+
+.basic-line-controls
+.control-section {
+  min-width: 0;
+
   display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 6px;
+}
+
+
+/* =========================================
+   SECTION DIVIDER
+========================================= */
+
+.basic-line-controls
+.control-section
++ .control-section {
+  border-left: 1px solid
+    rgba(148, 163, 184, 0.16);
+
+  padding-left: 14px;
+}
+
+
+/* =========================================
+   CONTROL ROW
+========================================= */
+
+.basic-line-controls
+.control-row {
+  width: 100%;
+
+  min-width: 0;
+
+  display: flex;
+
   align-items: center;
-  gap: 8px;
+
+  gap: 7px;
 
   white-space: nowrap;
 }
 
-.control-title {
+
+/* =========================================
+   LABEL
+========================================= */
+
+.basic-line-controls
+.control-row
+label {
+  flex-shrink: 0;
+
   color: var(--primary-light);
 
-  font-size: 11px;
+  font-size: 10px;
+
   font-weight: 700;
+
+  letter-spacing: 0.025em;
+
+  line-height: 1;
+
+  white-space: nowrap;
 }
 
-.data-field {
-  display: flex;
-  align-items: center;
-  gap: 5px;
 
-  color: var(--text-muted);
+/* =========================================
+   TEXT INPUT
+========================================= */
 
-  font-size: 11px;
-}
+.basic-line-controls
+.control-row
+input[type="text"] {
+  flex: 1;
 
-.data-field input {
-  width: 105px;
-  height: 28px;
+  min-width: 0;
 
-  padding: 4px 7px;
+  width: auto;
 
-  background: var(--surface-light);
+  height: 30px;
 
-  border: 1px solid var(--border);
-  border-radius: 5px;
+  padding: 5px 9px;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(30, 43, 73, 0.88),
+      rgba(20, 31, 57, 0.92)
+    );
+
+  border: 1px solid
+    rgba(71, 85, 115, 0.75);
+
+  border-radius: 6px;
 
   color: var(--text);
 
-  font-size: 11px;
+  font-size: 12px;
+
+  font-weight: 500;
 
   outline: none;
+
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
-.data-field input:focus {
+
+/* =========================================
+   NUMBER INPUT
+========================================= */
+
+.basic-line-controls
+.control-row
+input[type="number"] {
+  width: 65px;
+
+  height: 30px;
+
+  flex-shrink: 0;
+
+  padding: 5px 8px;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(30, 43, 73, 0.88),
+      rgba(20, 31, 57, 0.92)
+    );
+
+  border: 1px solid
+    rgba(71, 85, 115, 0.75);
+
+  border-radius: 6px;
+
+  color: var(--text);
+
+  font-size: 12px;
+
+  font-weight: 500;
+
+  outline: none;
+
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+
+/* =========================================
+   INPUT HOVER
+========================================= */
+
+.basic-line-controls
+.control-row
+input:hover {
+  border-color:
+    rgba(192, 132, 252, 0.48);
+
+  background:
+    rgba(34, 48, 82, 0.95);
+}
+
+
+/* =========================================
+   INPUT FOCUS
+========================================= */
+
+.basic-line-controls
+.control-row
+input:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 2px var(--primary-soft);
+
+  box-shadow:
+    0 0 0 2px var(--primary-soft),
+    0 0 10px
+    rgba(168, 85, 247, 0.08);
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.basic-line-controls
+.title-row {
+  width: 100%;
+}
+
+
+/* =========================================
+   AXIS ROW
+========================================= */
+
+.basic-line-controls
+.axis-row {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 12px;
+
+  min-width: 0;
+}
+
+
+/* =========================================
+   AXIS CONTROL
+========================================= */
+
+.basic-line-controls
+.axis-row
+.control-row {
+  min-width: 0;
+}
+
+
+/* =========================================
+   DATA SECTION
+========================================= */
+
+.basic-line-controls
+.data-section {
+  min-width: 0;
+}
+
+
+/* =========================================
+   SETTINGS SECTION
+========================================= */
+
+.basic-line-controls
+.settings-section {
+  min-width: 0;
+}
+
+
+/* =========================================
+   STYLE SECTION
+========================================= */
+
+.basic-line-controls
+.style-section {
+  min-width: 0;
+}
+
+
+/* =========================================
+   CHECKBOX
+========================================= */
+
+.basic-line-controls
+.control-checkbox {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+.basic-line-controls
+.control-checkbox
+input[type="checkbox"] {
+  width: 17px;
+
+  height: 17px;
+
+  margin: 0;
+
+  accent-color: var(--primary);
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+}
+
+/* =========================================
+   ALIGN TITLE + X-LABEL
+========================================= */
+
+.basic-line-controls .settings-section {
+  padding-left: 0;
+}
+
+.basic-line-controls .settings-section .title-row,
+.basic-line-controls .settings-section .axis-row {
+  padding-left: 0;
+}
+
+
+/* TITLE input starts at same position as X-LABEL input */
+
+.basic-line-controls
+.settings-section
+.title-row
+label {
+  width: 54px;
+}
+
+
+/* X-LABEL label gets same fixed width */
+
+.basic-line-controls
+.settings-section
+.axis-row
+.control-row:first-child
+label {
+  width: 54px;
 }

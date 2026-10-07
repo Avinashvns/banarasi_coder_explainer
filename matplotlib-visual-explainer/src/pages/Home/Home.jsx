@@ -1,14 +1,12 @@
 import Playground from "../../playground/Playground";
 import "./Home.css";
 
-function Home() {
+function Home({ selectedModule }) {
   return (
     <section className="home">
-      <div className="home-heading">
-        <h1>Matplotlib Visual Explainer</h1>
-        <p>Learn Matplotlib visually by creating and exploring charts step by step.</p>
-      </div>
-      <Playground />
+      <Playground
+        selectedModule={selectedModule}
+      />
     </section>
   );
 }

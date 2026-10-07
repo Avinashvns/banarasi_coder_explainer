@@ -149,7 +149,7 @@ function ChartPreview({ data, style }) {
       return (
         padding.left +
         ((value - xMin) / xRange) *
-          chartWidth
+        chartWidth
       );
     }
 
@@ -169,7 +169,7 @@ function ChartPreview({ data, style }) {
       padding.left +
       (index /
         (data.x.length - 1)) *
-        chartWidth
+      chartWidth
     );
   };
 
@@ -184,7 +184,7 @@ function ChartPreview({ data, style }) {
       chartHeight -
       ((value - yMin) /
         yRange) *
-        chartHeight
+      chartHeight
     );
   };
 
@@ -267,7 +267,7 @@ function ChartPreview({ data, style }) {
       padding.left +
       ((value - xMin) /
         xRange) *
-        chartWidth
+      chartWidth
     );
   };
 
@@ -278,11 +278,10 @@ function ChartPreview({ data, style }) {
 
   return (
     <div
-      className={`chart-preview ${
-        isFullscreen
+      className={`chart-preview ${isFullscreen
           ? "chart-fullscreen"
           : ""
-      }`}
+        }`}
     >
 
       {/* ====================================
@@ -373,43 +372,35 @@ function ChartPreview({ data, style }) {
                 Y GRID
             ============================== */}
 
-            {yAxis.ticks.map(
-              (value) => (
-                <line
-                  key={`grid-y-${value}`}
-                  x1={padding.left}
-                  y1={getY(value)}
-                  x2={
-                    width -
-                    padding.right
-                  }
-                  y2={getY(value)}
-                  className="chart-grid"
-                />
-              )
-            )}
+            {style.grid &&
+              yAxis.ticks.map(
+                (value) => (
+                  <line
+                    key={`grid-y-${value}`}
+                    x1={padding.left}
+                    y1={getY(value)}
+                    x2={width - padding.right}
+                    y2={getY(value)}
+                    className="chart-grid"
+                  />
+                )
+              )}
 
 
             {/* ==============================
                 X GRID
             ============================== */}
 
-            {isNumericX &&
+            {style.grid &&
+              isNumericX &&
               xAxis.ticks.map(
                 (value) => (
                   <line
                     key={`grid-x-${value}`}
-                    x1={getNumericXTickPosition(
-                      value
-                    )}
+                    x1={getNumericXTickPosition(value)}
                     y1={padding.top}
-                    x2={getNumericXTickPosition(
-                      value
-                    )}
-                    y2={
-                      height -
-                      padding.bottom
-                    }
+                    x2={getNumericXTickPosition(value)}
+                    y2={height - padding.bottom}
                     className="chart-grid"
                   />
                 )
@@ -521,11 +512,10 @@ function ChartPreview({ data, style }) {
                       6
                     }
                     textAnchor="end"
-                    className={`chart-tick ${
-                      isActive
+                    className={`chart-tick ${isActive
                         ? "chart-tick-active"
                         : ""
-                    }`}
+                      }`}
                     onMouseEnter={() =>
                       setHoveredYValue(
                         value
@@ -593,7 +583,7 @@ function ChartPreview({ data, style }) {
                             const distance =
                               Math.abs(
                                 xValue -
-                                  value
+                                value
                               );
 
                             if (
@@ -654,11 +644,10 @@ function ChartPreview({ data, style }) {
                         35
                       }
                       textAnchor="middle"
-                      className={`chart-tick ${
-                        isActive
+                      className={`chart-tick ${isActive
                           ? "chart-tick-active"
                           : ""
-                      }`}
+                        }`}
                       onMouseEnter={() =>
                         setHoveredXIndex(
                           index
@@ -724,11 +713,10 @@ function ChartPreview({ data, style }) {
                           ? 8
                           : 6
                       }
-                      className={`chart-point ${
-                        isHovered
+                      className={`chart-point ${isHovered
                           ? "chart-point-active"
                           : ""
-                      }`}
+                        }`}
                       onMouseEnter={() =>
                         setHoveredIndex(
                           index
@@ -762,7 +750,7 @@ function ChartPreview({ data, style }) {
                 const pointY =
                   getY(
                     data.y[
-                      hoveredIndex
+                    hoveredIndex
                     ]
                   );
 
@@ -791,9 +779,9 @@ function ChartPreview({ data, style }) {
 
                 if (
                   tooltipX +
-                    tooltipWidth >
+                  tooltipWidth >
                   width -
-                    padding.right
+                  padding.right
                 ) {
                   tooltipX =
                     width -
@@ -840,7 +828,7 @@ function ChartPreview({ data, style }) {
                       X:{" "}
                       {
                         data.x[
-                          hoveredIndex
+                        hoveredIndex
                         ]
                       }
                     </text>
@@ -856,7 +844,7 @@ function ChartPreview({ data, style }) {
                       Y:{" "}
                       {
                         data.y[
-                          hoveredIndex
+                        hoveredIndex
                         ]
                       }
                     </text>

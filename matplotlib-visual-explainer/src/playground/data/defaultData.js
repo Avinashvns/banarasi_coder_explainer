@@ -8,4 +8,5 @@ export const DEFAULT_STYLE = {
   xlabel: "X Axis",
   ylabel: "Y Axis",
   lineWidth: 2,
+  grid: true,
 };

@@ -1,11 +1,14 @@
 import ModuleList from "./ModuleList";
 import "./Sidebar.css";
 
-function Sidebar() {
+function Sidebar({ selectedModule, setSelectedModule }) {
   return (
     <aside className="sidebar">
-      <div className="sidebar-title">MATPLOTLIB</div>
-      <ModuleList />
+
+      <ModuleList
+        selectedModule={selectedModule}
+        setSelectedModule={setSelectedModule}
+      />
     </aside>
   );
 }

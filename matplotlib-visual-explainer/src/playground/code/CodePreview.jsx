@@ -24,6 +24,8 @@ plt.title("${style.title}")
 plt.xlabel("${style.xlabel}")
 plt.ylabel("${style.ylabel}")
 
+${style.grid ? "plt.grid()" : ""}
+
 plt.show()`;
   };
 
@@ -132,6 +134,8 @@ plt.show()`;
     const newXLabel = parseString("xlabel");
     const newYLabel = parseString("ylabel");
     const newLineWidth = parseLineWidth();
+    const newGrid =
+      /plt\.grid\s*\(\s*\)/.test(code);
 
     setData({
       x: newX,
@@ -158,6 +162,8 @@ plt.show()`;
         newLineWidth !== null
           ? newLineWidth
           : style.lineWidth,
+      
+      grid: newGrid,
     });
   };
 
