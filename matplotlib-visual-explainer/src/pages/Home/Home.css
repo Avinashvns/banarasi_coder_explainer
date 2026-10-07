@@ -1,0 +1,14 @@
+.home {
+  padding: 28px;
+}
+
+.home-heading h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  color: #0f172a;
+}
+
+.home-heading p {
+  margin: 0 0 20px;
+  color: #64748b;
+}

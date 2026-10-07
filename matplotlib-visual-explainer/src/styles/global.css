@@ -1,0 +1,10 @@
+body {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--page-bg);
+  color: #0f172a;
+}
+
+button,
+input {
+  font: inherit;
+}
